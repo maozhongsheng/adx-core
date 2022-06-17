@@ -1,10 +1,8 @@
-package com.mk.adx.entity.json.request.tz;
+package com.mk.adx.entity.json.request.mk;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 /**
  * 描述广告位对象-曝光对象-native

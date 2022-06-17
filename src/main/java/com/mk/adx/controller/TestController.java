@@ -1,18 +1,9 @@
 package com.mk.adx.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
-import com.mk.adx.entity.json.request.tz.TzBidRequest;
-import com.mk.adx.entity.json.response.ResponseResult;
-import com.mk.adx.entity.json.response.mk.MkBidResponse;
-import com.mk.adx.service.*;
+import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.io.IOException;
-import java.util.concurrent.ExecutionException;
 
 /**
  * 接受请求

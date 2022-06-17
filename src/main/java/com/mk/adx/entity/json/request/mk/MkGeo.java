@@ -1,10 +1,6 @@
-package com.mk.adx.entity.json.request.tz;
+package com.mk.adx.entity.json.request.mk;
 
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 /**
  * 地理位置对象
@@ -14,7 +10,7 @@ import javax.validation.constraints.NotNull;
  * @date 2021/3/11 13:53
  */
 @Data
-public class TzGeo {
+public class MkGeo {
     private float lat;//纬度从-90.0 + 90.0,-是南
     private float lon;//经度-180.0 + 180.0,-是西方。
     private String llt;//获取位置信息的时间与发起广告请求的时间差，单位为分钟

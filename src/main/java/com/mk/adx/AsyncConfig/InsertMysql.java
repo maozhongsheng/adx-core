@@ -1,11 +1,8 @@
 package com.mk.adx.AsyncConfig;
 
-import com.alibaba.fastjson.JSONObject;
 import com.mk.adx.client.SspClient;
-import com.mk.adx.entity.json.request.SspMediaRequestToKafka;
-import com.mk.adx.entity.json.request.tz.TzAdv;
-import com.mk.adx.entity.json.request.tz.TzBidRequest;
-import com.mk.adx.entity.json.response.SspMediaResponseToKafka;
+import com.mk.adx.entity.json.request.mk.MkAdv;
+import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -14,10 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  * 2、请求参数和返回参数，插入kafka数据
@@ -302,11 +295,11 @@ public class InsertMysql {
 //    }
 
 
-    public TzBidRequest insertMysql(TzAdv tzAdv, TzBidRequest request) {
+    public MkBidRequest insertMysql(MkAdv tzAdv, MkBidRequest request) {
         return null;
     }
 
-    public void updatemysqlrep(MkBidResponse bidResponse, TzBidRequest request, Long startTime) {
+    public void updatemysqlrep(MkBidResponse bidResponse, MkBidRequest request, Long startTime) {
 
     }
 }

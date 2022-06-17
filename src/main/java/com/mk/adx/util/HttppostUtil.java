@@ -3,7 +3,7 @@ package com.mk.adx.util;
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.util.JsonFormat;
 import com.mk.adx.entity.json.request.PostUtilDTO;
-import com.mk.adx.entity.json.request.tz.TzBidRequest;
+import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.Header;
@@ -224,7 +224,7 @@ public class HttppostUtil {
      * @return
      * @throws IOException
      */
-    public static String doWbRTAJsonPost(String uri, String params, TzBidRequest request){
+    public static String doWbRTAJsonPost(String uri, String params, MkBidRequest request){
         long time = System.currentTimeMillis();
         // 创建一个post请求
         HttpPost post = new HttpPost(uri);

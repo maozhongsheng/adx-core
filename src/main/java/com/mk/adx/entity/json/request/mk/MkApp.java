@@ -1,9 +1,8 @@
-package com.mk.adx.entity.json.request.tz;
+package com.mk.adx.entity.json.request.mk;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 /**
  * 移动app对象
@@ -13,7 +12,7 @@ import java.util.List;
  * @date 2021/3/11 13:52
  */
 @Data
-public class TzApp {
+public class MkApp {
     @NotBlank(message = "媒体不能为空")
     private String id;//媒体id
     @NotBlank(message = "应用程序包或包名称不能为空")

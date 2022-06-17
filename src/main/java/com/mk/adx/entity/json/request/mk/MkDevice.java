@@ -1,4 +1,4 @@
-package com.mk.adx.entity.json.request.tz;
+package com.mk.adx.entity.json.request.mk;
 
 import lombok.Data;
 
@@ -13,10 +13,10 @@ import javax.validation.constraints.NotNull;
  * @date 2021/3/11 13:53
  */
 @Data
-public class TzDevice {
+public class MkDevice {
     @NotBlank(message = "user agent(Browser user agent string)不能为空")
     private String ua;//user agent(Browser user agent string)请保持原值不要转义或者自定否则会影响广告填充
-    private TzGeo geo;//地理位置对象
+    private MkGeo geo;//地理位置对象
     @NotBlank(message = "ip不能为空")
     private String ip;//
     private String ipv6;//

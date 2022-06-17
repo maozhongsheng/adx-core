@@ -5,7 +5,7 @@ import com.mk.adx.AsyncConfig.InsertMysql;
 import com.mk.adx.AsyncConfig.RandomUtil;
 import com.mk.adx.AsyncConfig.asyncService.TaskService;
 import com.mk.adx.client.AdminClient;
-import com.mk.adx.entity.json.request.tz.TzBidRequest;
+import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.util.RedisUtil;
 import lombok.SneakyThrows;
@@ -41,7 +41,7 @@ public class TaskServiceImpl implements TaskService {
      */
     @SneakyThrows
     @Override
-    public MkBidResponse ckJsonRequest(TzBidRequest request) {
+    public MkBidResponse ckJsonRequest(MkBidRequest request) {
         Long startTime = System.currentTimeMillis();// 放在要检测的代码段前，取开始前的时间戳
         MkBidResponse bidResponse = new MkBidResponse();//最后返回数据
 

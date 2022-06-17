@@ -2,11 +2,9 @@ package com.mk.adx.AsyncConfig.asyncService.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mk.adx.client.AdminClient;
-import com.mk.adx.client.DspClient;
-import com.mk.adx.entity.json.request.tz.TzAdv;
-import com.mk.adx.entity.json.request.tz.TzBidRequest;
+import com.mk.adx.entity.json.request.mk.MkAdv;
+import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
-import com.mk.adx.service.*;
 import com.mk.adx.util.RedisUtil;
 import com.mk.adx.AsyncConfig.InsertMysql;
 import com.mk.adx.AsyncConfig.asyncService.RandomRateService;
@@ -51,7 +49,7 @@ public class RandomRateServiceImpl implements RandomRateService {
     @Async("getAsyncExecutor")
     @SneakyThrows
     @Override
-    public Future<Map<Integer, MkBidResponse>> randomRequest(Map<String, Integer> map, Map distribute, TzBidRequest request) {
+    public Future<Map<Integer, MkBidResponse>> randomRequest(Map<String, Integer> map, Map distribute, MkBidRequest request) {
         Map<Integer, MkBidResponse> ranMap = new HashMap<>();
         ranMap = totalRequest(map, distribute, request);//公共方法
 //        log.info(request.getImp().get(0).getTagid()+"-"+Thread.currentThread().getName()+"-请求成功");
@@ -68,7 +66,7 @@ public class RandomRateServiceImpl implements RandomRateService {
     @Async("getAsyncExecutor")
     @SneakyThrows
     @Override
-    public Future<Map<Integer, MkBidResponse>> concurrentRequest(Map<String, Integer> map, Map distribute, TzBidRequest request) {
+    public Future<Map<Integer, MkBidResponse>> concurrentRequest(Map<String, Integer> map, Map distribute, MkBidRequest request) {
         Map<Integer, MkBidResponse> conMap = new HashMap<>();
         conMap = totalRequest(map, distribute, request);//公共方法
         return AsyncResult.forValue(conMap);
@@ -82,10 +80,10 @@ public class RandomRateServiceImpl implements RandomRateService {
      * @param request
      * @return
      */
-    private Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, TzBidRequest request) {
+    private Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, MkBidRequest request) {
         Map<Integer, MkBidResponse> mapObj = new HashMap<>();//最后返回
         MkBidResponse response = new MkBidResponse();//请求返回数据
-        TzAdv tzAdv = new TzAdv();
+        MkAdv mkAdv = new MkAdv();
         Map upper = new HashMap();
 
 
@@ -121,24 +119,24 @@ public class RandomRateServiceImpl implements RandomRateService {
             }
 
             //1、将上游数据存入adv中
-            tzAdv.setApp_name(upper.get("app_name").toString());
-            tzAdv.setDsp_id(upper.get("dsp_id").toString());
-            tzAdv.setApp_id(upper.get("app_id").toString());
-            tzAdv.setTag_id(upper.get("tag_id").toString());
-            tzAdv.setSize(upper.get("size").toString());
-            tzAdv.setBundle(upper.get("bundle").toString());
-            tzAdv.setSlot_type(upper.get("slot_type").toString());
-            tzAdv.setVersion(upper.get("version").toString());
-            tzAdv.setOs(upper.get("os").toString());
-            tzAdv.setPrice(Integer.valueOf(distribute.get("price").toString().split("\\.")[0]));
-            tzAdv.setTest(Integer.valueOf(distribute.get("test").toString()));
-            request.setAdv(tzAdv);//配置数据放入请求
+            mkAdv.setApp_name(upper.get("app_name").toString());
+            mkAdv.setDsp_id(upper.get("dsp_id").toString());
+            mkAdv.setApp_id(upper.get("app_id").toString());
+            mkAdv.setTag_id(upper.get("tag_id").toString());
+            mkAdv.setSize(upper.get("size").toString());
+            mkAdv.setBundle(upper.get("bundle").toString());
+            mkAdv.setSlot_type(upper.get("slot_type").toString());
+            mkAdv.setVersion(upper.get("version").toString());
+            mkAdv.setOs(upper.get("os").toString());
+            mkAdv.setPrice(Integer.valueOf(distribute.get("price").toString().split("\\.")[0]));
+            mkAdv.setTest(Integer.valueOf(distribute.get("test").toString()));
+            request.setAdv(mkAdv);//配置数据放入请求
 
             //2、处理kafka请求数据
-            request = insertMysql.insertMysql(tzAdv,request);
+            request = insertMysql.insertMysql(mkAdv,request);
 
             //2、根据adv_id处理请求service
-            if(null != tzAdv){
+            if(null != mkAdv){
                 response = asyncRequest(request);//请求响应service，获得返回数据
                 if (null!=response.getId()){
                     Long selectTimeout = response.getProcess_time_ms();//请求上游花费时间
@@ -166,7 +164,7 @@ public class RandomRateServiceImpl implements RandomRateService {
      * @param bidRequest
      * @return
      */
-    private MkBidResponse asyncRequest(TzBidRequest bidRequest){
+    private MkBidResponse asyncRequest(MkBidRequest bidRequest){
         MkBidResponse bidResponse = null;//返回数据
             if (1 == bidRequest.getAdv().getTest()) {
 

@@ -1,6 +1,6 @@
 package com.mk.adx.AsyncConfig;
 
-import com.mk.adx.entity.json.request.tz.TzBidRequest;
+import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.AsyncConfig.asyncService.RandomRateService;
 import lombok.SneakyThrows;
@@ -37,7 +37,7 @@ public class RandomUtil {
      * @throws IOException
      */
     @SneakyThrows
-    public MkBidResponse randomRequest(Map distribute, TzBidRequest request){
+    public MkBidResponse randomRequest(Map distribute, MkBidRequest request){
 
         MkBidResponse bidResponse = new MkBidResponse();//最后返回数据
         Map<Integer,MkBidResponse> ranMapObj = new HashMap<>();//存比例和返回数据

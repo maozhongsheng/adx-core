@@ -2,8 +2,8 @@ package com.mk.adx.AsyncConfig;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mk.adx.client.AdminClient;
-import com.mk.adx.entity.json.request.tz.TzAdv;
-import com.mk.adx.entity.json.request.tz.TzBidRequest;
+import com.mk.adx.entity.json.request.mk.MkAdv;
+import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -37,9 +37,9 @@ public class AsyncRequestUtil {
     @Resource
     private RedisUtil redisUtil;
 
-    public Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, TzBidRequest request, int status){
+    public Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, MkBidRequest request, int status){
         String timeoutStr = distribute.get("timeout").toString();//后台配置超时时间
-        TzAdv tzAdv = new TzAdv();
+        MkAdv mkAdv = new MkAdv();
         Map upper = new HashMap();
         Map<Integer, MkBidResponse> mapObj = new HashMap<>();
 
@@ -70,24 +70,24 @@ public class AsyncRequestUtil {
             }
 
             //将上游数据存入adv中
-            tzAdv.setApp_name(upper.get("app_name").toString());
-            tzAdv.setDsp_id(upper.get("dsp_id").toString());
-            tzAdv.setApp_id(upper.get("app_id").toString());
-            tzAdv.setTag_id(upper.get("tag_id").toString());
-            tzAdv.setSize(upper.get("size").toString());
-            tzAdv.setBundle(upper.get("bundle").toString());
-            tzAdv.setSlot_type(upper.get("slot_type").toString());
-            tzAdv.setVersion(upper.get("version").toString());
-            tzAdv.setOs(upper.get("os").toString());
-            tzAdv.setPrice(Integer.valueOf(distribute.get("price").toString().split("\\.")[0]));
-            tzAdv.setTest(Integer.valueOf(distribute.get("test").toString()));
-            request.setAdv(tzAdv);
+            mkAdv.setApp_name(upper.get("app_name").toString());
+            mkAdv.setDsp_id(upper.get("dsp_id").toString());
+            mkAdv.setApp_id(upper.get("app_id").toString());
+            mkAdv.setTag_id(upper.get("tag_id").toString());
+            mkAdv.setSize(upper.get("size").toString());
+            mkAdv.setBundle(upper.get("bundle").toString());
+            mkAdv.setSlot_type(upper.get("slot_type").toString());
+            mkAdv.setVersion(upper.get("version").toString());
+            mkAdv.setOs(upper.get("os").toString());
+            mkAdv.setPrice(Integer.valueOf(distribute.get("price").toString().split("\\.")[0]));
+            mkAdv.setTest(Integer.valueOf(distribute.get("test").toString()));
+            request.setAdv(mkAdv);
 
             //2、处理kafka请求数据
-            request = insertMysql.insertMysql(tzAdv,request);
+            request = insertMysql.insertMysql(mkAdv,request);
 
             //3、根据adv_id处理请求service
-            if(null != tzAdv){
+            if(null != mkAdv){
                 MkBidResponse response = asyncRequest(request);//获得返回数据
                 if (null!=response.getId()){
                     Long selectTimeout = response.getProcess_time_ms();//请求上游花费时间
@@ -113,7 +113,7 @@ public class AsyncRequestUtil {
      * @param bidRequest
      * @return
      */
-    private MkBidResponse asyncRequest(TzBidRequest bidRequest){
+    private MkBidResponse asyncRequest(MkBidRequest bidRequest){
         MkBidResponse bidResponse = null;//返回数据
             if (1 == bidRequest.getAdv().getTest()) {
 

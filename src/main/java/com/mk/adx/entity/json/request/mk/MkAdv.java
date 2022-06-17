@@ -1,9 +1,9 @@
-package com.mk.adx.entity.json.request.tz;
+package com.mk.adx.entity.json.request.mk;
 
 import lombok.Data;
 
 @Data
-public class TzAdv {
+public class MkAdv {
     private int price; //价格
     private String dsp_id; //联盟id
     private String app_id; //联盟媒体id
