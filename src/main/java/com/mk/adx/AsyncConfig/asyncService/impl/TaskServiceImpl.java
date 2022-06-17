@@ -1,12 +1,12 @@
 package com.mk.adx.AsyncConfig.asyncService.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mk.adx.AsyncConfig.InsertKafka;
+import com.mk.adx.AsyncConfig.InsertMysql;
 import com.mk.adx.AsyncConfig.RandomUtil;
 import com.mk.adx.AsyncConfig.asyncService.TaskService;
 import com.mk.adx.client.AdminClient;
 import com.mk.adx.entity.json.request.tz.TzBidRequest;
-import com.mk.adx.entity.json.response.tz.TzBidResponse;
+import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.util.RedisUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +32,7 @@ public class TaskServiceImpl implements TaskService {
     private RandomUtil randomUtil;
 
     @Autowired
-    private InsertKafka insertKafka;
+    private InsertMysql insertMysql;
 
     /**
      * 一、处理流量分配和并发请求，并且将请求参数写入kafka
@@ -41,9 +41,9 @@ public class TaskServiceImpl implements TaskService {
      */
     @SneakyThrows
     @Override
-    public TzBidResponse ckJsonRequest(TzBidRequest request) {
+    public MkBidResponse ckJsonRequest(TzBidRequest request) {
         Long startTime = System.currentTimeMillis();// 放在要检测的代码段前，取开始前的时间戳
-        TzBidResponse bidResponse = new TzBidResponse();//最后返回数据
+        MkBidResponse bidResponse = new MkBidResponse();//最后返回数据
 
         Object adx = redisUtil.get(request.getImp().get(0).getTagid());//根据广告位id从redis中查询数据
         Map distribute = new HashMap();
@@ -76,7 +76,7 @@ public class TaskServiceImpl implements TaskService {
         //4、处理返回数据，放入kafka
         if (null != bidResponse.getId()) {
 //            bidResponse.setProcess_time_ms(tempTime);
-            insertKafka.ckDataByJson(bidResponse,request,startTime);
+            insertMysql.updatemysqlrep(bidResponse,request,startTime);
         }
 
         return bidResponse;

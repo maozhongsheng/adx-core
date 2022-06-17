@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 /**
  * 设备对象
  *
- * @author yjn
+ * @author mzs
  * @version 1.0
  * @date 2021/3/11 13:53
  */
@@ -43,14 +43,10 @@ public class TzDevice {
     private Integer ppi;//屏幕大小
     // @NotNull(message = "设备屏幕密度不能为空")
     private double deny;//设备屏幕密度（安卓:context.getResources().getDisplayMetrics().density； iOS:UIScreen.scale取值例如:2.0）
-    private int js;//是否支持JavaScript, 0：否，1：是
     //  @NotBlank(message = "网络运营商不能为空")
     private String carrier;//网络运营商（中国移动：70120 中国联通：70123 中国电信：70121）
     private Integer connectiontype;//网络链接类型，取值如下：eth，wifi，3g，4g，5g，未知留空
     private String gaid;//安卓advertising id，示例：AdvertisingIdClient.Info info = AdvertisingIdClie nt.getAdvertisingIdInfo(context);String gpId = info.getId()
-    private String idfa;//IDFA，明文传输，默认为空字符串
-    private String idfa_md5;//
-    private String idfa_sha1;//
     private String imei;//IMEI，明文传输，默认为空字符串
     private String imei_md5;//
     private String imei_sha1;//
@@ -59,6 +55,9 @@ public class TzDevice {
     private String android_id_sha1;//
     private String oaid;//移动安全联盟推出的匿名设备标识符
     private String oaid_md5;//移动安全联盟推出的匿名设备标识符 md5值
+    private String idfa;//IDFA，明文传输，默认为空字符串
+    private String idfa_md5;//
+    private String idfa_sha1;//
     private String idfv;//iOS 系统的 idfv值
     private String caid;//中国广告协会互联网广告标识（CAID）
     private String caid_version;//caid算法版本，提供caid时必填
@@ -87,21 +86,5 @@ public class TzDevice {
     private String appstore_ver;//如“iPhone10,3”, 仅ios需要回传，安卓可不填写该字段
     private String vercodeofhms;//HMS Core 版本号，实现被推广应用的静默安装依赖 HMS Core 能力。华为设备必填。
 
-
-
-//    private String device_id;//Hardware device ID
-//    private String device_id_md5;//
-//    private String device_id_sha1;//
-//    private String referer;//http请求header中的referer信息,京东
-//    private String device_size;//设备的屏幕分辨率,例如:1024x768
-//    private String oaid;//安卓oaid
-//    private String vaid;//开发者匿名设备标识符Android Q 以上会有该值
-//    private String vivostorever;//vivo 应用商店包名，目前仅供 vivo 使用，vivo广告必填
-//    private int elapse_time;//开机使用时长，单位ms，vivo广告必填
-//    private String idfv;//IOS 设备当前的 IDFV 值NSString * IDFV = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-//    private String batteryStatus;//电池充电状态，IOS操作系统必传:Unkown:未知;Unplugged:不充电;Charging:充电;Full:满电
-//    private int batteryPower;//电池电量百分比，IOS操作系统必传，例如:60
-//    private float cpuFrequency;//手机 CPU 频率，单位:GHz IOS操作系统必传,例如:2.2
-//    private int laccu;//定位精准度，IOS操作系统必传0: 定位精准，可以获取到小数 点 4 位及以上;1: 定位不准确
 
 }

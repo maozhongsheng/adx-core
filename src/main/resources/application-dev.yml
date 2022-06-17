@@ -12,9 +12,9 @@ spring:
   application:
     name: adx-core-master
   datasource:
-    url: jdbc:mysql://49.233.44.47:33061/tianzhuo_ad_data?autoReconnect=true
-    username: tianzhuo_admin
-    password: Tianzhuo2021
+    url: jdbc:mysql://172.27.117.22:3306/ad_sp?autoReconnect=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: maofather147
     tomcat:
       max-active: 5
       min-idle: 1
@@ -27,31 +27,6 @@ spring:
     messages:
       encoding: UTF-8
 
-  kafka:
-    bootstrap-servers: 49.232.64.166:19092,49.232.64.166:19093,49.232.64.166:19094
-    listener:
-      concurrency: 5 #指定listener 容器中的线程数，用于提高并发量
-      ack-mode: manual_immediate #listner负责ack，每调用一次，就立即commit
-
-    producer:
-      batch-size: 50000 # 每次批量发送消息的数量
-      retries: 3
-      client-id: 200
-      buffer-memory: 33554432 # 设置生产者内存缓冲区的大小
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer # 键的序列化方式
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer # 值的序列化方式
-      acks: 1
-      # acks=0 ： 生产者在成功写入消息之前不会等待任何来自服务器的响应。
-      # acks=1 ： 只要集群的首领节点收到消息，生产者就会收到一个来自服务器成功响应。
-      # acks=all ：只有当所有参与复制的节点全部收到消息时，生产者才会收到一个来自服务器的成功响应。
-
-    consumer:
-      group-id: group1 # 指定默认消费者group id
-      auto-offset-reset: earliest #  最早未被消费的offset
-      enable-auto-commit: false #自动提交
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer # 键的反序列化方式
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer # 值的反序列化方式
-      max-poll-records: 20000
 
   redis:
 #    cluster:
@@ -74,7 +49,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.tianzhuo.adx.vo
+  type-aliases-package: com.mk.adx.vo
 
 logging:
   file:

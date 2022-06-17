@@ -1,7 +1,7 @@
 package com.mk.adx.AsyncConfig;
 
 import com.mk.adx.entity.json.request.tz.TzBidRequest;
-import com.mk.adx.entity.json.response.tz.TzBidResponse;
+import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.AsyncConfig.asyncService.RandomRateService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -37,11 +37,11 @@ public class RandomUtil {
      * @throws IOException
      */
     @SneakyThrows
-    public TzBidResponse randomRequest(Map distribute, TzBidRequest request){
+    public MkBidResponse randomRequest(Map distribute, TzBidRequest request){
 
-        TzBidResponse bidResponse = new TzBidResponse();//最后返回数据
-        Map<Integer,TzBidResponse> ranMapObj = new HashMap<>();//存比例和返回数据
-        Map<Integer,TzBidResponse> conMapObj = new HashMap<>();//存比例和返回数据
+        MkBidResponse bidResponse = new MkBidResponse();//最后返回数据
+        Map<Integer,MkBidResponse> ranMapObj = new HashMap<>();//存比例和返回数据
+        Map<Integer,MkBidResponse> conMapObj = new HashMap<>();//存比例和返回数据
         Map<String, Integer> map = new HashMap<>();//存储请求开关集合
         Map<String, Integer> low_map = new HashMap<>();//存储并发开关集合
         Map<String, Integer> ran_map = new HashMap<>();//存储随机到的数据
@@ -102,7 +102,7 @@ public class RandomUtil {
             }
             //***机型匹配的请求，与并发请求时一样---如果匹配机型不为空优先，否则走下面随机和并发
             if (!make_map.isEmpty()){
-                Future<Map<Integer, TzBidResponse>> conMap = null;//
+                Future<Map<Integer, MkBidResponse>> conMap = null;//
                 conMap = randomRateService.concurrentRequest(make_map,distribute,request);
                 conMapObj = conMap.get();
                 //如果机型匹配的不为空那么直接返回，如果为空，再走下面随机和打底的联盟
@@ -322,7 +322,7 @@ public class RandomUtil {
                 }
 
                 //2、调用异步请求时，公共的逻辑-返回比例和最后返回数据----随机的advid
-                Future<Map<Integer, TzBidResponse>> conMap = null;//
+                Future<Map<Integer, MkBidResponse>> conMap = null;//
                 conMap = randomRateService.randomRequest(ran_map,distribute,request);
                 ranMapObj = conMap.get();
 
@@ -440,7 +440,7 @@ public class RandomUtil {
             }
 
             //2、调用异步请求时，公共的逻辑-返回比例和最后返回数据----随机的advid
-            Future<Map<Integer, TzBidResponse>> conMap = null;//
+            Future<Map<Integer, MkBidResponse>> conMap = null;//
             conMap = randomRateService.randomRequest(ran_map,distribute,request);
             ranMapObj = conMap.get();
 

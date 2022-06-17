@@ -1,6 +1,6 @@
 package com.mk.adx.entity.json.response;
 
-import com.mk.adx.entity.json.response.tz.TzImage;
+import com.mk.adx.entity.json.response.mk.MkImage;
 import lombok.Data;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class SspMediaResponseToKafka {
     private String dsp_id;//dsp_id
     private String dsp_name;//dsp来源名称
     private String click_type;//点击类型
-    private List<TzImage> images;//素材对象
+    private List<MkImage> images;//素材对象
     private Integer bid_count;//素材个数
     private String bundle;//包名
     private Long timestamp;//时间戳
