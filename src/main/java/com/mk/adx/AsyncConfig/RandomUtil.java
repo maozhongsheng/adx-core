@@ -19,7 +19,7 @@ import java.util.concurrent.Future;
 /**
  * 随机事件分发器-流量分发-打底开关
  *
- * @author yjn
+ * @author mzs
  * @version 1.0
  * @date 2021/11/11 18:20
  */

@@ -5,6 +5,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="req_id" jdbcType="VARCHAR" property="req_id" />
     <result column="req_date" jdbcType="TIMESTAMP" property="req_date" />
+    <result column="req_sys" jdbcType="BIGINT" property="req_sys" />
     <result column="ad_id" jdbcType="BIGINT" property="ad_id" />
     <result column="pos_id" jdbcType="BIGINT" property="pos_id" />
     <result column="slot_type" jdbcType="BIGINT" property="slot_type" />
@@ -26,6 +27,7 @@
     <result column="ideeplink_s" jdbcType="BIGINT" property="ideeplink_s" />
     <result column="ip" jdbcType="VARCHAR" property="ip" />
     <result column="res_s" jdbcType="BIGINT" property="res_s" />
+    <result column="res_sys" jdbcType="BIGINT" property="res_sys" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -86,9 +88,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, req_id, req_date, ad_id, pos_id, slot_type, media_id, dsp_id, dsp_media_id, dsp_pos_id, 
-    pv_s, pv_time, clikc_s, clikc_time, v_start_s, v_end_s, download_start_s, download_end_s, 
-    install_start_s, install_end_s, deeplink_s, ideeplink_s, ip, res_s
+    id, req_id, req_date, req_sys, ad_id, pos_id, slot_type, media_id, dsp_id, dsp_media_id, 
+    dsp_pos_id, pv_s, pv_time, clikc_s, clikc_time, v_start_s, v_end_s, download_start_s, 
+    download_end_s, install_start_s, install_end_s, deeplink_s, ideeplink_s, ip, res_s, 
+    res_sys
   </sql>
   <select id="selectByExample" parameterType="com.mk.adx.vo.DataAllExample" resultMap="BaseResultMap">
     select
@@ -121,23 +124,25 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mk.adx.vo.DataAll" useGeneratedKeys="true">
-    insert into data_all (req_id, req_date, ad_id, 
-      pos_id, slot_type, media_id, 
-      dsp_id, dsp_media_id, dsp_pos_id, 
-      pv_s, pv_time, clikc_s, 
-      clikc_time, v_start_s, v_end_s, 
-      download_start_s, download_end_s, install_start_s, 
-      install_end_s, deeplink_s, ideeplink_s, 
-      ip, res_s)
-    values (#{req_id,jdbcType=VARCHAR}, #{req_date,jdbcType=TIMESTAMP}, #{ad_id,jdbcType=BIGINT}, 
-      #{pos_id,jdbcType=BIGINT}, #{slot_type,jdbcType=BIGINT}, #{media_id,jdbcType=BIGINT}, 
-      #{dsp_id,jdbcType=BIGINT}, #{dsp_media_id,jdbcType=VARCHAR}, #{dsp_pos_id,jdbcType=VARCHAR}, 
-      #{pv_s,jdbcType=BIGINT}, #{pv_time,jdbcType=BIGINT}, #{clikc_s,jdbcType=BIGINT}, 
-      #{clikc_time,jdbcType=BIGINT}, #{v_start_s,jdbcType=BIGINT}, #{v_end_s,jdbcType=BIGINT}, 
-      #{download_start_s,jdbcType=BIGINT}, #{download_end_s,jdbcType=BIGINT}, #{install_start_s,jdbcType=BIGINT}, 
-      #{install_end_s,jdbcType=BIGINT}, #{deeplink_s,jdbcType=BIGINT}, #{ideeplink_s,jdbcType=BIGINT}, 
-      #{ip,jdbcType=VARCHAR}, #{res_s,jdbcType=BIGINT})
+    insert into data_all (req_id, req_date, req_sys, 
+      ad_id, pos_id, slot_type, 
+      media_id, dsp_id, dsp_media_id, 
+      dsp_pos_id, ip, res_s,
+      res_sys)
+    values (#{req_id,jdbcType=VARCHAR}, #{req_date,jdbcType=TIMESTAMP}, #{req_sys,jdbcType=BIGINT}, 
+      #{ad_id,jdbcType=BIGINT}, #{pos_id,jdbcType=BIGINT}, #{slot_type,jdbcType=BIGINT}, 
+      #{media_id,jdbcType=BIGINT}, #{dsp_id,jdbcType=BIGINT}, #{dsp_media_id,jdbcType=VARCHAR}, 
+      #{dsp_pos_id,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{res_s,jdbcType=BIGINT},
+      #{res_sys,jdbcType=BIGINT})
   </insert>
+
+  <update id="update" parameterType="com.mk.adx.vo.DataAll">
+    update data_all
+    set res_s = #{res_s,jdbcType=BIGINT},
+    res_sys = #{res_sys,jdbcType=BIGINT}
+    where req_id = #{req_id,jdbcType=VARCHAR}
+  </update>
+
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mk.adx.vo.DataAll" useGeneratedKeys="true">
     insert into data_all
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -146,6 +151,9 @@
       </if>
       <if test="req_date != null">
         req_date,
+      </if>
+      <if test="req_sys != null">
+        req_sys,
       </if>
       <if test="ad_id != null">
         ad_id,
@@ -210,6 +218,9 @@
       <if test="res_s != null">
         res_s,
       </if>
+      <if test="res_sys != null">
+        res_sys,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="req_id != null">
@@ -217,6 +228,9 @@
       </if>
       <if test="req_date != null">
         #{req_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="req_sys != null">
+        #{req_sys,jdbcType=BIGINT},
       </if>
       <if test="ad_id != null">
         #{ad_id,jdbcType=BIGINT},
@@ -281,6 +295,9 @@
       <if test="res_s != null">
         #{res_s,jdbcType=BIGINT},
       </if>
+      <if test="res_sys != null">
+        #{res_sys,jdbcType=BIGINT},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.mk.adx.vo.DataAllExample" resultType="java.lang.Long">
@@ -300,6 +317,9 @@
       </if>
       <if test="record.req_date != null">
         req_date = #{record.req_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.req_sys != null">
+        req_sys = #{record.req_sys,jdbcType=BIGINT},
       </if>
       <if test="record.ad_id != null">
         ad_id = #{record.ad_id,jdbcType=BIGINT},
@@ -364,6 +384,9 @@
       <if test="record.res_s != null">
         res_s = #{record.res_s,jdbcType=BIGINT},
       </if>
+      <if test="record.res_sys != null">
+        res_sys = #{record.res_sys,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -374,6 +397,7 @@
     set id = #{record.id,jdbcType=BIGINT},
       req_id = #{record.req_id,jdbcType=VARCHAR},
       req_date = #{record.req_date,jdbcType=TIMESTAMP},
+      req_sys = #{record.req_sys,jdbcType=BIGINT},
       ad_id = #{record.ad_id,jdbcType=BIGINT},
       pos_id = #{record.pos_id,jdbcType=BIGINT},
       slot_type = #{record.slot_type,jdbcType=BIGINT},
@@ -394,7 +418,8 @@
       deeplink_s = #{record.deeplink_s,jdbcType=BIGINT},
       ideeplink_s = #{record.ideeplink_s,jdbcType=BIGINT},
       ip = #{record.ip,jdbcType=VARCHAR},
-      res_s = #{record.res_s,jdbcType=BIGINT}
+      res_s = #{record.res_s,jdbcType=BIGINT},
+      res_sys = #{record.res_sys,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -407,6 +432,9 @@
       </if>
       <if test="req_date != null">
         req_date = #{req_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="req_sys != null">
+        req_sys = #{req_sys,jdbcType=BIGINT},
       </if>
       <if test="ad_id != null">
         ad_id = #{ad_id,jdbcType=BIGINT},
@@ -471,6 +499,9 @@
       <if test="res_s != null">
         res_s = #{res_s,jdbcType=BIGINT},
       </if>
+      <if test="res_sys != null">
+        res_sys = #{res_sys,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -478,6 +509,7 @@
     update data_all
     set req_id = #{req_id,jdbcType=VARCHAR},
       req_date = #{req_date,jdbcType=TIMESTAMP},
+      req_sys = #{req_sys,jdbcType=BIGINT},
       ad_id = #{ad_id,jdbcType=BIGINT},
       pos_id = #{pos_id,jdbcType=BIGINT},
       slot_type = #{slot_type,jdbcType=BIGINT},
@@ -498,7 +530,61 @@
       deeplink_s = #{deeplink_s,jdbcType=BIGINT},
       ideeplink_s = #{ideeplink_s,jdbcType=BIGINT},
       ip = #{ip,jdbcType=VARCHAR},
-      res_s = #{res_s,jdbcType=BIGINT}
+      res_s = #{res_s,jdbcType=BIGINT},
+      res_sys = #{res_sys,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <update id="uppv" parameterType="java.util.Map">
+    update data_all
+    set pv_s = #{pv_s}, pv_time = #{pv_time}
+    where req_id = #{req_id}
+  </update>
+  <update id="upck" parameterType="java.util.Map">
+    update data_all
+    set clikc_s = #{clikc_s}, clikc_time = #{clikc_time}
+    where req_id = #{req_id}
+  </update>
+  <update id="upvs" parameterType="java.util.Map">
+    update data_all
+    set v_start_s = #{v_start_s}
+    where req_id = #{req_id}
+  </update>
+  <update id="upve" parameterType="java.util.Map">
+    update data_all
+    set v_end_s = #{v_end_s}
+    where req_id = #{req_id}
+  </update>
+  <update id="upds" parameterType="java.util.Map">
+    update data_all
+    set download_start_s = #{download_start_s}
+    where req_id = #{req_id}
+  </update>
+  <update id="upde" parameterType="java.util.Map">
+    update data_all
+    set download_end_s = #{download_end_s}
+    where req_id = #{req_id}
+  </update>
+  <update id="upis" parameterType="java.util.Map">
+    update data_all
+    set install_start_s = #{install_start_s}
+    where req_id = #{req_id}
+  </update>
+  <update id="upie" parameterType="java.util.Map">
+    update data_all
+    set install_end_s = #{install_end_s}
+    where req_id = #{req_id}
+  </update>
+  <update id="updp" parameterType="java.util.Map">
+    update data_all
+    set deeplink_s = #{deeplink_s}
+    where req_id = #{req_id}
+  </update>
+  <update id="upidp" parameterType="java.util.Map">
+    update data_all
+    set ideeplink_s = #{ideeplink_s}
+    where req_id = #{req_id}
+  </update>
+
+
+
 </mapper>

@@ -295,6 +295,66 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
+        public Criteria andReq_sysIsNull() {
+            addCriterion("req_sys is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysIsNotNull() {
+            addCriterion("req_sys is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysEqualTo(Long value) {
+            addCriterion("req_sys =", value, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysNotEqualTo(Long value) {
+            addCriterion("req_sys <>", value, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysGreaterThan(Long value) {
+            addCriterion("req_sys >", value, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysGreaterThanOrEqualTo(Long value) {
+            addCriterion("req_sys >=", value, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysLessThan(Long value) {
+            addCriterion("req_sys <", value, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysLessThanOrEqualTo(Long value) {
+            addCriterion("req_sys <=", value, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysIn(List<Long> values) {
+            addCriterion("req_sys in", values, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysNotIn(List<Long> values) {
+            addCriterion("req_sys not in", values, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysBetween(Long value1, Long value2) {
+            addCriterion("req_sys between", value1, value2, "req_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andReq_sysNotBetween(Long value1, Long value2) {
+            addCriterion("req_sys not between", value1, value2, "req_sys");
+            return (Criteria) this;
+        }
+
         public Criteria andAd_idIsNull() {
             addCriterion("ad_id is null");
             return (Criteria) this;
@@ -305,52 +365,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andAd_idEqualTo(Long value) {
+        public Criteria andAd_idEqualTo(Integer value) {
             addCriterion("ad_id =", value, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idNotEqualTo(Long value) {
+        public Criteria andAd_idNotEqualTo(Integer value) {
             addCriterion("ad_id <>", value, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idGreaterThan(Long value) {
+        public Criteria andAd_idGreaterThan(Integer value) {
             addCriterion("ad_id >", value, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idGreaterThanOrEqualTo(Long value) {
+        public Criteria andAd_idGreaterThanOrEqualTo(Integer value) {
             addCriterion("ad_id >=", value, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idLessThan(Long value) {
+        public Criteria andAd_idLessThan(Integer value) {
             addCriterion("ad_id <", value, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idLessThanOrEqualTo(Long value) {
+        public Criteria andAd_idLessThanOrEqualTo(Integer value) {
             addCriterion("ad_id <=", value, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idIn(List<Long> values) {
+        public Criteria andAd_idIn(List<Integer> values) {
             addCriterion("ad_id in", values, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idNotIn(List<Long> values) {
+        public Criteria andAd_idNotIn(List<Integer> values) {
             addCriterion("ad_id not in", values, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idBetween(Long value1, Long value2) {
+        public Criteria andAd_idBetween(Integer value1, Integer value2) {
             addCriterion("ad_id between", value1, value2, "ad_id");
             return (Criteria) this;
         }
 
-        public Criteria andAd_idNotBetween(Long value1, Long value2) {
+        public Criteria andAd_idNotBetween(Integer value1, Integer value2) {
             addCriterion("ad_id not between", value1, value2, "ad_id");
             return (Criteria) this;
         }
@@ -365,52 +425,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andPos_idEqualTo(Long value) {
+        public Criteria andPos_idEqualTo(Integer value) {
             addCriterion("pos_id =", value, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idNotEqualTo(Long value) {
+        public Criteria andPos_idNotEqualTo(Integer value) {
             addCriterion("pos_id <>", value, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idGreaterThan(Long value) {
+        public Criteria andPos_idGreaterThan(Integer value) {
             addCriterion("pos_id >", value, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idGreaterThanOrEqualTo(Long value) {
+        public Criteria andPos_idGreaterThanOrEqualTo(Integer value) {
             addCriterion("pos_id >=", value, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idLessThan(Long value) {
+        public Criteria andPos_idLessThan(Integer value) {
             addCriterion("pos_id <", value, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idLessThanOrEqualTo(Long value) {
+        public Criteria andPos_idLessThanOrEqualTo(Integer value) {
             addCriterion("pos_id <=", value, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idIn(List<Long> values) {
+        public Criteria andPos_idIn(List<Integer> values) {
             addCriterion("pos_id in", values, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idNotIn(List<Long> values) {
+        public Criteria andPos_idNotIn(List<Integer> values) {
             addCriterion("pos_id not in", values, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idBetween(Long value1, Long value2) {
+        public Criteria andPos_idBetween(Integer value1, Integer value2) {
             addCriterion("pos_id between", value1, value2, "pos_id");
             return (Criteria) this;
         }
 
-        public Criteria andPos_idNotBetween(Long value1, Long value2) {
+        public Criteria andPos_idNotBetween(Integer value1, Integer value2) {
             addCriterion("pos_id not between", value1, value2, "pos_id");
             return (Criteria) this;
         }
@@ -425,52 +485,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeEqualTo(Long value) {
+        public Criteria andSlot_typeEqualTo(Integer value) {
             addCriterion("slot_type =", value, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeNotEqualTo(Long value) {
+        public Criteria andSlot_typeNotEqualTo(Integer value) {
             addCriterion("slot_type <>", value, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeGreaterThan(Long value) {
+        public Criteria andSlot_typeGreaterThan(Integer value) {
             addCriterion("slot_type >", value, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeGreaterThanOrEqualTo(Long value) {
+        public Criteria andSlot_typeGreaterThanOrEqualTo(Integer value) {
             addCriterion("slot_type >=", value, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeLessThan(Long value) {
+        public Criteria andSlot_typeLessThan(Integer value) {
             addCriterion("slot_type <", value, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeLessThanOrEqualTo(Long value) {
+        public Criteria andSlot_typeLessThanOrEqualTo(Integer value) {
             addCriterion("slot_type <=", value, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeIn(List<Long> values) {
+        public Criteria andSlot_typeIn(List<Integer> values) {
             addCriterion("slot_type in", values, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeNotIn(List<Long> values) {
+        public Criteria andSlot_typeNotIn(List<Integer> values) {
             addCriterion("slot_type not in", values, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeBetween(Long value1, Long value2) {
+        public Criteria andSlot_typeBetween(Integer value1, Integer value2) {
             addCriterion("slot_type between", value1, value2, "slot_type");
             return (Criteria) this;
         }
 
-        public Criteria andSlot_typeNotBetween(Long value1, Long value2) {
+        public Criteria andSlot_typeNotBetween(Integer value1, Integer value2) {
             addCriterion("slot_type not between", value1, value2, "slot_type");
             return (Criteria) this;
         }
@@ -485,52 +545,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idEqualTo(Long value) {
+        public Criteria andMedia_idEqualTo(Integer value) {
             addCriterion("media_id =", value, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idNotEqualTo(Long value) {
+        public Criteria andMedia_idNotEqualTo(Integer value) {
             addCriterion("media_id <>", value, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idGreaterThan(Long value) {
+        public Criteria andMedia_idGreaterThan(Integer value) {
             addCriterion("media_id >", value, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idGreaterThanOrEqualTo(Long value) {
+        public Criteria andMedia_idGreaterThanOrEqualTo(Integer value) {
             addCriterion("media_id >=", value, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idLessThan(Long value) {
+        public Criteria andMedia_idLessThan(Integer value) {
             addCriterion("media_id <", value, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idLessThanOrEqualTo(Long value) {
+        public Criteria andMedia_idLessThanOrEqualTo(Integer value) {
             addCriterion("media_id <=", value, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idIn(List<Long> values) {
+        public Criteria andMedia_idIn(List<Integer> values) {
             addCriterion("media_id in", values, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idNotIn(List<Long> values) {
+        public Criteria andMedia_idNotIn(List<Integer> values) {
             addCriterion("media_id not in", values, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idBetween(Long value1, Long value2) {
+        public Criteria andMedia_idBetween(Integer value1, Integer value2) {
             addCriterion("media_id between", value1, value2, "media_id");
             return (Criteria) this;
         }
 
-        public Criteria andMedia_idNotBetween(Long value1, Long value2) {
+        public Criteria andMedia_idNotBetween(Integer value1, Integer value2) {
             addCriterion("media_id not between", value1, value2, "media_id");
             return (Criteria) this;
         }
@@ -545,52 +605,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idEqualTo(Long value) {
+        public Criteria andDsp_idEqualTo(Integer value) {
             addCriterion("dsp_id =", value, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idNotEqualTo(Long value) {
+        public Criteria andDsp_idNotEqualTo(Integer value) {
             addCriterion("dsp_id <>", value, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idGreaterThan(Long value) {
+        public Criteria andDsp_idGreaterThan(Integer value) {
             addCriterion("dsp_id >", value, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idGreaterThanOrEqualTo(Long value) {
+        public Criteria andDsp_idGreaterThanOrEqualTo(Integer value) {
             addCriterion("dsp_id >=", value, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idLessThan(Long value) {
+        public Criteria andDsp_idLessThan(Integer value) {
             addCriterion("dsp_id <", value, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idLessThanOrEqualTo(Long value) {
+        public Criteria andDsp_idLessThanOrEqualTo(Integer value) {
             addCriterion("dsp_id <=", value, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idIn(List<Long> values) {
+        public Criteria andDsp_idIn(List<Integer> values) {
             addCriterion("dsp_id in", values, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idNotIn(List<Long> values) {
+        public Criteria andDsp_idNotIn(List<Integer> values) {
             addCriterion("dsp_id not in", values, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idBetween(Long value1, Long value2) {
+        public Criteria andDsp_idBetween(Integer value1, Integer value2) {
             addCriterion("dsp_id between", value1, value2, "dsp_id");
             return (Criteria) this;
         }
 
-        public Criteria andDsp_idNotBetween(Long value1, Long value2) {
+        public Criteria andDsp_idNotBetween(Integer value1, Integer value2) {
             addCriterion("dsp_id not between", value1, value2, "dsp_id");
             return (Criteria) this;
         }
@@ -745,52 +805,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andPv_sEqualTo(Long value) {
+        public Criteria andPv_sEqualTo(Integer value) {
             addCriterion("pv_s =", value, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sNotEqualTo(Long value) {
+        public Criteria andPv_sNotEqualTo(Integer value) {
             addCriterion("pv_s <>", value, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sGreaterThan(Long value) {
+        public Criteria andPv_sGreaterThan(Integer value) {
             addCriterion("pv_s >", value, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andPv_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("pv_s >=", value, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sLessThan(Long value) {
+        public Criteria andPv_sLessThan(Integer value) {
             addCriterion("pv_s <", value, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sLessThanOrEqualTo(Long value) {
+        public Criteria andPv_sLessThanOrEqualTo(Integer value) {
             addCriterion("pv_s <=", value, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sIn(List<Long> values) {
+        public Criteria andPv_sIn(List<Integer> values) {
             addCriterion("pv_s in", values, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sNotIn(List<Long> values) {
+        public Criteria andPv_sNotIn(List<Integer> values) {
             addCriterion("pv_s not in", values, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sBetween(Long value1, Long value2) {
+        public Criteria andPv_sBetween(Integer value1, Integer value2) {
             addCriterion("pv_s between", value1, value2, "pv_s");
             return (Criteria) this;
         }
 
-        public Criteria andPv_sNotBetween(Long value1, Long value2) {
+        public Criteria andPv_sNotBetween(Integer value1, Integer value2) {
             addCriterion("pv_s not between", value1, value2, "pv_s");
             return (Criteria) this;
         }
@@ -865,52 +925,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sEqualTo(Long value) {
+        public Criteria andClikc_sEqualTo(Integer value) {
             addCriterion("clikc_s =", value, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sNotEqualTo(Long value) {
+        public Criteria andClikc_sNotEqualTo(Integer value) {
             addCriterion("clikc_s <>", value, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sGreaterThan(Long value) {
+        public Criteria andClikc_sGreaterThan(Integer value) {
             addCriterion("clikc_s >", value, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andClikc_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("clikc_s >=", value, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sLessThan(Long value) {
+        public Criteria andClikc_sLessThan(Integer value) {
             addCriterion("clikc_s <", value, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sLessThanOrEqualTo(Long value) {
+        public Criteria andClikc_sLessThanOrEqualTo(Integer value) {
             addCriterion("clikc_s <=", value, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sIn(List<Long> values) {
+        public Criteria andClikc_sIn(List<Integer> values) {
             addCriterion("clikc_s in", values, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sNotIn(List<Long> values) {
+        public Criteria andClikc_sNotIn(List<Integer> values) {
             addCriterion("clikc_s not in", values, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sBetween(Long value1, Long value2) {
+        public Criteria andClikc_sBetween(Integer value1, Integer value2) {
             addCriterion("clikc_s between", value1, value2, "clikc_s");
             return (Criteria) this;
         }
 
-        public Criteria andClikc_sNotBetween(Long value1, Long value2) {
+        public Criteria andClikc_sNotBetween(Integer value1, Integer value2) {
             addCriterion("clikc_s not between", value1, value2, "clikc_s");
             return (Criteria) this;
         }
@@ -985,52 +1045,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sEqualTo(Long value) {
+        public Criteria andV_start_sEqualTo(Integer value) {
             addCriterion("v_start_s =", value, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sNotEqualTo(Long value) {
+        public Criteria andV_start_sNotEqualTo(Integer value) {
             addCriterion("v_start_s <>", value, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sGreaterThan(Long value) {
+        public Criteria andV_start_sGreaterThan(Integer value) {
             addCriterion("v_start_s >", value, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andV_start_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("v_start_s >=", value, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sLessThan(Long value) {
+        public Criteria andV_start_sLessThan(Integer value) {
             addCriterion("v_start_s <", value, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sLessThanOrEqualTo(Long value) {
+        public Criteria andV_start_sLessThanOrEqualTo(Integer value) {
             addCriterion("v_start_s <=", value, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sIn(List<Long> values) {
+        public Criteria andV_start_sIn(List<Integer> values) {
             addCriterion("v_start_s in", values, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sNotIn(List<Long> values) {
+        public Criteria andV_start_sNotIn(List<Integer> values) {
             addCriterion("v_start_s not in", values, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sBetween(Long value1, Long value2) {
+        public Criteria andV_start_sBetween(Integer value1, Integer value2) {
             addCriterion("v_start_s between", value1, value2, "v_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_start_sNotBetween(Long value1, Long value2) {
+        public Criteria andV_start_sNotBetween(Integer value1, Integer value2) {
             addCriterion("v_start_s not between", value1, value2, "v_start_s");
             return (Criteria) this;
         }
@@ -1045,52 +1105,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sEqualTo(Long value) {
+        public Criteria andV_end_sEqualTo(Integer value) {
             addCriterion("v_end_s =", value, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sNotEqualTo(Long value) {
+        public Criteria andV_end_sNotEqualTo(Integer value) {
             addCriterion("v_end_s <>", value, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sGreaterThan(Long value) {
+        public Criteria andV_end_sGreaterThan(Integer value) {
             addCriterion("v_end_s >", value, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andV_end_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("v_end_s >=", value, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sLessThan(Long value) {
+        public Criteria andV_end_sLessThan(Integer value) {
             addCriterion("v_end_s <", value, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sLessThanOrEqualTo(Long value) {
+        public Criteria andV_end_sLessThanOrEqualTo(Integer value) {
             addCriterion("v_end_s <=", value, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sIn(List<Long> values) {
+        public Criteria andV_end_sIn(List<Integer> values) {
             addCriterion("v_end_s in", values, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sNotIn(List<Long> values) {
+        public Criteria andV_end_sNotIn(List<Integer> values) {
             addCriterion("v_end_s not in", values, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sBetween(Long value1, Long value2) {
+        public Criteria andV_end_sBetween(Integer value1, Integer value2) {
             addCriterion("v_end_s between", value1, value2, "v_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andV_end_sNotBetween(Long value1, Long value2) {
+        public Criteria andV_end_sNotBetween(Integer value1, Integer value2) {
             addCriterion("v_end_s not between", value1, value2, "v_end_s");
             return (Criteria) this;
         }
@@ -1105,52 +1165,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sEqualTo(Long value) {
+        public Criteria andDownload_start_sEqualTo(Integer value) {
             addCriterion("download_start_s =", value, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sNotEqualTo(Long value) {
+        public Criteria andDownload_start_sNotEqualTo(Integer value) {
             addCriterion("download_start_s <>", value, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sGreaterThan(Long value) {
+        public Criteria andDownload_start_sGreaterThan(Integer value) {
             addCriterion("download_start_s >", value, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andDownload_start_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("download_start_s >=", value, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sLessThan(Long value) {
+        public Criteria andDownload_start_sLessThan(Integer value) {
             addCriterion("download_start_s <", value, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sLessThanOrEqualTo(Long value) {
+        public Criteria andDownload_start_sLessThanOrEqualTo(Integer value) {
             addCriterion("download_start_s <=", value, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sIn(List<Long> values) {
+        public Criteria andDownload_start_sIn(List<Integer> values) {
             addCriterion("download_start_s in", values, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sNotIn(List<Long> values) {
+        public Criteria andDownload_start_sNotIn(List<Integer> values) {
             addCriterion("download_start_s not in", values, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sBetween(Long value1, Long value2) {
+        public Criteria andDownload_start_sBetween(Integer value1, Integer value2) {
             addCriterion("download_start_s between", value1, value2, "download_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_start_sNotBetween(Long value1, Long value2) {
+        public Criteria andDownload_start_sNotBetween(Integer value1, Integer value2) {
             addCriterion("download_start_s not between", value1, value2, "download_start_s");
             return (Criteria) this;
         }
@@ -1165,52 +1225,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sEqualTo(Long value) {
+        public Criteria andDownload_end_sEqualTo(Integer value) {
             addCriterion("download_end_s =", value, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sNotEqualTo(Long value) {
+        public Criteria andDownload_end_sNotEqualTo(Integer value) {
             addCriterion("download_end_s <>", value, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sGreaterThan(Long value) {
+        public Criteria andDownload_end_sGreaterThan(Integer value) {
             addCriterion("download_end_s >", value, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andDownload_end_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("download_end_s >=", value, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sLessThan(Long value) {
+        public Criteria andDownload_end_sLessThan(Integer value) {
             addCriterion("download_end_s <", value, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sLessThanOrEqualTo(Long value) {
+        public Criteria andDownload_end_sLessThanOrEqualTo(Integer value) {
             addCriterion("download_end_s <=", value, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sIn(List<Long> values) {
+        public Criteria andDownload_end_sIn(List<Integer> values) {
             addCriterion("download_end_s in", values, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sNotIn(List<Long> values) {
+        public Criteria andDownload_end_sNotIn(List<Integer> values) {
             addCriterion("download_end_s not in", values, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sBetween(Long value1, Long value2) {
+        public Criteria andDownload_end_sBetween(Integer value1, Integer value2) {
             addCriterion("download_end_s between", value1, value2, "download_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andDownload_end_sNotBetween(Long value1, Long value2) {
+        public Criteria andDownload_end_sNotBetween(Integer value1, Integer value2) {
             addCriterion("download_end_s not between", value1, value2, "download_end_s");
             return (Criteria) this;
         }
@@ -1225,52 +1285,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sEqualTo(Long value) {
+        public Criteria andInstall_start_sEqualTo(Integer value) {
             addCriterion("install_start_s =", value, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sNotEqualTo(Long value) {
+        public Criteria andInstall_start_sNotEqualTo(Integer value) {
             addCriterion("install_start_s <>", value, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sGreaterThan(Long value) {
+        public Criteria andInstall_start_sGreaterThan(Integer value) {
             addCriterion("install_start_s >", value, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andInstall_start_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("install_start_s >=", value, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sLessThan(Long value) {
+        public Criteria andInstall_start_sLessThan(Integer value) {
             addCriterion("install_start_s <", value, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sLessThanOrEqualTo(Long value) {
+        public Criteria andInstall_start_sLessThanOrEqualTo(Integer value) {
             addCriterion("install_start_s <=", value, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sIn(List<Long> values) {
+        public Criteria andInstall_start_sIn(List<Integer> values) {
             addCriterion("install_start_s in", values, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sNotIn(List<Long> values) {
+        public Criteria andInstall_start_sNotIn(List<Integer> values) {
             addCriterion("install_start_s not in", values, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sBetween(Long value1, Long value2) {
+        public Criteria andInstall_start_sBetween(Integer value1, Integer value2) {
             addCriterion("install_start_s between", value1, value2, "install_start_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_start_sNotBetween(Long value1, Long value2) {
+        public Criteria andInstall_start_sNotBetween(Integer value1, Integer value2) {
             addCriterion("install_start_s not between", value1, value2, "install_start_s");
             return (Criteria) this;
         }
@@ -1285,52 +1345,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sEqualTo(Long value) {
+        public Criteria andInstall_end_sEqualTo(Integer value) {
             addCriterion("install_end_s =", value, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sNotEqualTo(Long value) {
+        public Criteria andInstall_end_sNotEqualTo(Integer value) {
             addCriterion("install_end_s <>", value, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sGreaterThan(Long value) {
+        public Criteria andInstall_end_sGreaterThan(Integer value) {
             addCriterion("install_end_s >", value, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andInstall_end_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("install_end_s >=", value, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sLessThan(Long value) {
+        public Criteria andInstall_end_sLessThan(Integer value) {
             addCriterion("install_end_s <", value, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sLessThanOrEqualTo(Long value) {
+        public Criteria andInstall_end_sLessThanOrEqualTo(Integer value) {
             addCriterion("install_end_s <=", value, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sIn(List<Long> values) {
+        public Criteria andInstall_end_sIn(List<Integer> values) {
             addCriterion("install_end_s in", values, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sNotIn(List<Long> values) {
+        public Criteria andInstall_end_sNotIn(List<Integer> values) {
             addCriterion("install_end_s not in", values, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sBetween(Long value1, Long value2) {
+        public Criteria andInstall_end_sBetween(Integer value1, Integer value2) {
             addCriterion("install_end_s between", value1, value2, "install_end_s");
             return (Criteria) this;
         }
 
-        public Criteria andInstall_end_sNotBetween(Long value1, Long value2) {
+        public Criteria andInstall_end_sNotBetween(Integer value1, Integer value2) {
             addCriterion("install_end_s not between", value1, value2, "install_end_s");
             return (Criteria) this;
         }
@@ -1345,52 +1405,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sEqualTo(Long value) {
+        public Criteria andDeeplink_sEqualTo(Integer value) {
             addCriterion("deeplink_s =", value, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sNotEqualTo(Long value) {
+        public Criteria andDeeplink_sNotEqualTo(Integer value) {
             addCriterion("deeplink_s <>", value, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sGreaterThan(Long value) {
+        public Criteria andDeeplink_sGreaterThan(Integer value) {
             addCriterion("deeplink_s >", value, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andDeeplink_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("deeplink_s >=", value, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sLessThan(Long value) {
+        public Criteria andDeeplink_sLessThan(Integer value) {
             addCriterion("deeplink_s <", value, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sLessThanOrEqualTo(Long value) {
+        public Criteria andDeeplink_sLessThanOrEqualTo(Integer value) {
             addCriterion("deeplink_s <=", value, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sIn(List<Long> values) {
+        public Criteria andDeeplink_sIn(List<Integer> values) {
             addCriterion("deeplink_s in", values, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sNotIn(List<Long> values) {
+        public Criteria andDeeplink_sNotIn(List<Integer> values) {
             addCriterion("deeplink_s not in", values, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sBetween(Long value1, Long value2) {
+        public Criteria andDeeplink_sBetween(Integer value1, Integer value2) {
             addCriterion("deeplink_s between", value1, value2, "deeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andDeeplink_sNotBetween(Long value1, Long value2) {
+        public Criteria andDeeplink_sNotBetween(Integer value1, Integer value2) {
             addCriterion("deeplink_s not between", value1, value2, "deeplink_s");
             return (Criteria) this;
         }
@@ -1405,52 +1465,52 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sEqualTo(Long value) {
+        public Criteria andIdeeplink_sEqualTo(Integer value) {
             addCriterion("ideeplink_s =", value, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sNotEqualTo(Long value) {
+        public Criteria andIdeeplink_sNotEqualTo(Integer value) {
             addCriterion("ideeplink_s <>", value, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sGreaterThan(Long value) {
+        public Criteria andIdeeplink_sGreaterThan(Integer value) {
             addCriterion("ideeplink_s >", value, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andIdeeplink_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("ideeplink_s >=", value, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sLessThan(Long value) {
+        public Criteria andIdeeplink_sLessThan(Integer value) {
             addCriterion("ideeplink_s <", value, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sLessThanOrEqualTo(Long value) {
+        public Criteria andIdeeplink_sLessThanOrEqualTo(Integer value) {
             addCriterion("ideeplink_s <=", value, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sIn(List<Long> values) {
+        public Criteria andIdeeplink_sIn(List<Integer> values) {
             addCriterion("ideeplink_s in", values, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sNotIn(List<Long> values) {
+        public Criteria andIdeeplink_sNotIn(List<Integer> values) {
             addCriterion("ideeplink_s not in", values, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sBetween(Long value1, Long value2) {
+        public Criteria andIdeeplink_sBetween(Integer value1, Integer value2) {
             addCriterion("ideeplink_s between", value1, value2, "ideeplink_s");
             return (Criteria) this;
         }
 
-        public Criteria andIdeeplink_sNotBetween(Long value1, Long value2) {
+        public Criteria andIdeeplink_sNotBetween(Integer value1, Integer value2) {
             addCriterion("ideeplink_s not between", value1, value2, "ideeplink_s");
             return (Criteria) this;
         }
@@ -1535,53 +1595,113 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andRes_sEqualTo(Long value) {
+        public Criteria andRes_sEqualTo(Integer value) {
             addCriterion("res_s =", value, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sNotEqualTo(Long value) {
+        public Criteria andRes_sNotEqualTo(Integer value) {
             addCriterion("res_s <>", value, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sGreaterThan(Long value) {
+        public Criteria andRes_sGreaterThan(Integer value) {
             addCriterion("res_s >", value, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sGreaterThanOrEqualTo(Long value) {
+        public Criteria andRes_sGreaterThanOrEqualTo(Integer value) {
             addCriterion("res_s >=", value, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sLessThan(Long value) {
+        public Criteria andRes_sLessThan(Integer value) {
             addCriterion("res_s <", value, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sLessThanOrEqualTo(Long value) {
+        public Criteria andRes_sLessThanOrEqualTo(Integer value) {
             addCriterion("res_s <=", value, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sIn(List<Long> values) {
+        public Criteria andRes_sIn(List<Integer> values) {
             addCriterion("res_s in", values, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sNotIn(List<Long> values) {
+        public Criteria andRes_sNotIn(List<Integer> values) {
             addCriterion("res_s not in", values, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sBetween(Long value1, Long value2) {
+        public Criteria andRes_sBetween(Integer value1, Integer value2) {
             addCriterion("res_s between", value1, value2, "res_s");
             return (Criteria) this;
         }
 
-        public Criteria andRes_sNotBetween(Long value1, Long value2) {
+        public Criteria andRes_sNotBetween(Integer value1, Integer value2) {
             addCriterion("res_s not between", value1, value2, "res_s");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysIsNull() {
+            addCriterion("res_sys is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysIsNotNull() {
+            addCriterion("res_sys is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysEqualTo(Long value) {
+            addCriterion("res_sys =", value, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysNotEqualTo(Long value) {
+            addCriterion("res_sys <>", value, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysGreaterThan(Long value) {
+            addCriterion("res_sys >", value, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysGreaterThanOrEqualTo(Long value) {
+            addCriterion("res_sys >=", value, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysLessThan(Long value) {
+            addCriterion("res_sys <", value, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysLessThanOrEqualTo(Long value) {
+            addCriterion("res_sys <=", value, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysIn(List<Long> values) {
+            addCriterion("res_sys in", values, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysNotIn(List<Long> values) {
+            addCriterion("res_sys not in", values, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysBetween(Long value1, Long value2) {
+            addCriterion("res_sys between", value1, value2, "res_sys");
+            return (Criteria) this;
+        }
+
+        public Criteria andRes_sysNotBetween(Long value1, Long value2) {
+            addCriterion("res_sys not between", value1, value2, "res_sys");
             return (Criteria) this;
         }
     }

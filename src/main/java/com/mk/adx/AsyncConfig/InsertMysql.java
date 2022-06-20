@@ -4,18 +4,21 @@ import com.mk.adx.client.SspClient;
 import com.mk.adx.entity.json.request.mk.MkAdv;
 import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
+import com.mk.adx.mapper.DataAllMapper;
 import com.mk.adx.util.RedisUtil;
+import com.mk.adx.vo.DataAll;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
- * 2、请求参数和返回参数，插入kafka数据
+ * 2、请求参数和返回参数，插入Mysql数据
  *
- * @author yjn
+ * @author mzs
  * @version 1.0
  * @date 2021/11/11 18:20
  */
@@ -28,6 +31,10 @@ public class InsertMysql {
 
     @Autowired
     private KafkaTemplate kafkaTemplate;
+
+    @Autowired
+    private DataAllMapper dataAllMapper;
+
 
     @Resource
     private RedisUtil redisUtil;
@@ -295,11 +302,35 @@ public class InsertMysql {
 //    }
 
 
-    public MkBidRequest insertMysql(MkAdv tzAdv, MkBidRequest request) {
-        return null;
+    public void insertMysql(MkAdv mkAdv, MkBidRequest request) {
+        try {
+            DataAll dataAll = new DataAll();
+            dataAll.setReq_id(request.getId());
+            dataAll.setReq_date(new Date());
+            dataAll.setReq_sys(System.currentTimeMillis());
+            dataAll.setAd_id(Integer.valueOf(sspClient.getagentId(request.getApp().getId())));
+            dataAll.setPos_id(Integer.valueOf(request.getImp().get(0).getTagid()));
+            dataAll.setMedia_id(Integer.valueOf(request.getApp().getId()));
+            dataAll.setSlot_type(Integer.valueOf(request.getImp().get(0).getSlot_type()));
+            dataAll.setDsp_id(Integer.valueOf(mkAdv.getDsp_id()));
+            dataAll.setDsp_media_id(mkAdv.getApp_id());
+            dataAll.setDsp_pos_id(mkAdv.getTag_id());
+            dataAll.setIp(request.getDevice().getIp());
+            dataAllMapper.insert(dataAll);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public void updatemysqlrep(MkBidResponse bidResponse, MkBidRequest request, Long startTime) {
-
+    public void updatemysqlrep(MkBidRequest request) {
+        try {
+            DataAll dataAll = new DataAll();
+            dataAll.setReq_id(request.getId());
+            dataAll.setRes_s(1);
+            dataAll.setRes_sys(System.currentTimeMillis());
+            dataAllMapper.update(dataAll);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

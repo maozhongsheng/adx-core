@@ -59,7 +59,22 @@
             <generatedKey column="id" sqlStatement="JDBC" identity="true"></generatedKey>
             <ignoreColumn column="ts_update"/>
 
-            <!--<columnOverride column="adx_id" javaType="java.lang.Integer"/>-->
+            <columnOverride column="ad_id" javaType="java.lang.Integer"/>
+            <columnOverride column="pos_id" javaType="java.lang.Integer"/>
+            <columnOverride column="slot_type" javaType="java.lang.Integer"/>
+            <columnOverride column="media_id" javaType="java.lang.Integer"/>
+            <columnOverride column="dsp_id" javaType="java.lang.Integer"/>
+            <columnOverride column="pv_s" javaType="java.lang.Integer"/>
+            <columnOverride column="clikc_s" javaType="java.lang.Integer"/>
+            <columnOverride column="v_start_s" javaType="java.lang.Integer"/>
+            <columnOverride column="v_end_s" javaType="java.lang.Integer"/>
+            <columnOverride column="download_start_s" javaType="java.lang.Integer"/>
+            <columnOverride column="download_end_s" javaType="java.lang.Integer"/>
+            <columnOverride column="install_start_s" javaType="java.lang.Integer"/>
+            <columnOverride column="install_end_s" javaType="java.lang.Integer"/>
+            <columnOverride column="deeplink_s" javaType="java.lang.Integer"/>
+            <columnOverride column="ideeplink_s" javaType="java.lang.Integer"/>
+            <columnOverride column="res_s" javaType="java.lang.Integer"/>
          </table>
 
      </context>

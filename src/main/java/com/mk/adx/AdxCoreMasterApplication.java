@@ -1,5 +1,6 @@
 package com.mk.adx;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -20,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableAsync
 @EnableHystrix
+@MapperScan("com.mk.adx.mapper")
 public class AdxCoreMasterApplication {
 
     public static void main(String[] args) {

@@ -73,10 +73,10 @@ public class TaskServiceImpl implements TaskService {
         bidResponse = randomUtil.randomRequest(distribute,request);
 
 
-        //4、处理返回数据，放入kafka
+        //4、处理返回数据，放入mysql
         if (null != bidResponse.getId()) {
 //            bidResponse.setProcess_time_ms(tempTime);
-            insertMysql.updatemysqlrep(bidResponse,request,startTime);
+            insertMysql.updatemysqlrep(request);
         }
 
         return bidResponse;

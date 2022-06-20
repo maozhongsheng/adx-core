@@ -5,6 +5,7 @@ import com.mk.adx.client.AdminClient;
 import com.mk.adx.entity.json.request.mk.MkAdv;
 import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
+import com.mk.adx.service.MkTestService;
 import com.mk.adx.util.RedisUtil;
 import com.mk.adx.AsyncConfig.InsertMysql;
 import com.mk.adx.AsyncConfig.asyncService.RandomRateService;
@@ -38,6 +39,9 @@ public class RandomRateServiceImpl implements RandomRateService {
 
     @Resource
     private RedisUtil redisUtil;
+
+    @Autowired
+    private MkTestService mktestService;
 
     /**
      * 1、随机请求
@@ -99,11 +103,12 @@ public class RandomRateServiceImpl implements RandomRateService {
 
             //先从redis查询，如果为空则从数据库先查再放入redis
             //根据联盟广告位id查询上游数据,无效流量直接返回
-            upper = JSONObject.parseObject((redisUtil.get(adv_id).toString().replace("=", ":")), HashMap.class);//根据联盟id（key）去查询相应信息
-            if (null == upper) {
+            Object o = redisUtil.get(adv_id);
+            if(null != o){
+                upper = JSONObject.parseObject((redisUtil.get(adv_id).toString().replace("=", ":")), HashMap.class);//根据联盟id（key）去查询相应信息
+            }else{
                 //根据联盟广告位id查询上游数据
                 upper = adminClient.selectUpperBySlotId(adv_id);
-
                 //将上游数据存入redis
                 HashMap hashMap = new HashMap();
                 hashMap.put("dsp_id", upper.get("dsp_id").toString());
@@ -117,7 +122,6 @@ public class RandomRateServiceImpl implements RandomRateService {
                 hashMap.put("os", upper.get("os").toString());
                 redisUtil.set(adv_id, JSONObject.toJSONString(hashMap));
             }
-
             //1、将上游数据存入adv中
             mkAdv.setApp_name(upper.get("app_name").toString());
             mkAdv.setDsp_id(upper.get("dsp_id").toString());
@@ -132,8 +136,8 @@ public class RandomRateServiceImpl implements RandomRateService {
             mkAdv.setTest(Integer.valueOf(distribute.get("test").toString()));
             request.setAdv(mkAdv);//配置数据放入请求
 
-            //2、处理kafka请求数据
-            request = insertMysql.insertMysql(mkAdv,request);
+            //2、处理mysql请求数据
+            insertMysql.insertMysql(mkAdv,request);
 
             //2、根据adv_id处理请求service
             if(null != mkAdv){
@@ -166,10 +170,11 @@ public class RandomRateServiceImpl implements RandomRateService {
      */
     private MkBidResponse asyncRequest(MkBidRequest bidRequest){
         MkBidResponse bidResponse = null;//返回数据
+        //test = 1 是正式  test = 0 为测试
             if (1 == bidRequest.getAdv().getTest()) {
 
             }else {
-
+                bidResponse = mktestService.getTestDataByJson(bidRequest);
             }
 
 

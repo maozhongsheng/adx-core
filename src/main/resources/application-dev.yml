@@ -1,7 +1,7 @@
 server:
   port: 7111
   servlet:
-    context-path: /ad-core-master
+    context-path: /adx-mk
   connection-timeout: 20000
   tomcat:
     max-connections: 60
@@ -12,7 +12,7 @@ spring:
   application:
     name: adx-core-master
   datasource:
-    url: jdbc:mysql://172.27.117.22:3306/ad_sp?autoReconnect=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://123.56.174.234:3306/ad_sp?autoReconnect=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: maofather147
     tomcat:
@@ -34,9 +34,9 @@ spring:
 #      nodes: 49.232.91.191:6379,81.70.178.200:6379,82.156.126.248:6379,49.232.74.185:6379,49.233.44.47:6379,152.136.194.147:6379
 #          password: 0UKPqK2u
 #      nodes: 8.140.99.234:7010,8.140.99.234:7011,8.140.99.234:7012,8.140.99.234:7013,8.140.99.234:7014,8.140.99.234:7015
-    host: 49.233.44.47
-    port: 63791
-    password: 0UKPqK2u
+    host: 123.56.174.234 # 172.27.117.22
+    port: 6379
+    password: Mzs147.
     database: 0
     timeout: 1000 #超时时间
     # 配置文件中添加 lettuce.pool 相关配置，则会使用到lettuce连接池

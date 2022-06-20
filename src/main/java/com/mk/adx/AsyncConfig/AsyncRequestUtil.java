@@ -84,7 +84,7 @@ public class AsyncRequestUtil {
             request.setAdv(mkAdv);
 
             //2、处理kafka请求数据
-            request = insertMysql.insertMysql(mkAdv,request);
+            insertMysql.insertMysql(mkAdv,request);
 
             //3、根据adv_id处理请求service
             if(null != mkAdv){
