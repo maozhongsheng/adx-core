@@ -1,5 +1,6 @@
 package com.mk.adx.entity.json.response.mk;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import java.util.List;
 

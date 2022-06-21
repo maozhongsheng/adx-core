@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -305,8 +306,11 @@ public class InsertMysql {
     public void insertMysql(MkAdv mkAdv, MkBidRequest request) {
         try {
             DataAll dataAll = new DataAll();
+            Date date = new Date();
+            SimpleDateFormat dfh = new SimpleDateFormat("HH");
             dataAll.setReq_id(request.getId());
-            dataAll.setReq_date(new Date());
+            dataAll.setDate(date);
+            dataAll.setDate_hour(dfh.format(date));
             dataAll.setReq_sys(System.currentTimeMillis());
             dataAll.setAd_id(Integer.valueOf(sspClient.getagentId(request.getApp().getId())));
             dataAll.setPos_id(Integer.valueOf(request.getImp().get(0).getTagid()));

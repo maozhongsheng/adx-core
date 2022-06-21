@@ -16,8 +16,6 @@ public interface DataAllMapper {
 
     int insert(DataAll record);
 
-    void update(DataAll dataAll);
-
     int insertSelective(DataAll record);
 
     List<DataAll> selectByExample(DataAllExample example);
@@ -52,4 +50,5 @@ public interface DataAllMapper {
 
     void upidp(Map da);
 
+    void update(DataAll dataAll);
 }

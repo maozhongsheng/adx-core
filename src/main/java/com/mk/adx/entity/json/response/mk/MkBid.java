@@ -12,8 +12,6 @@ import java.util.List;
  */
 @Data
 public class MkBid {
-    private String id;//出价 ID，协助日志/跟踪
-    private String impid;//request 中的 impid
     private float price;//出价，cpm  Float
     private String adid;//广告 ID
     private String nurl;//win notice url，竞价成功提醒 url,支持的“宏”标准

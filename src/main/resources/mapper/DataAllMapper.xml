@@ -4,7 +4,8 @@
   <resultMap id="BaseResultMap" type="com.mk.adx.vo.DataAll">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="req_id" jdbcType="VARCHAR" property="req_id" />
-    <result column="req_date" jdbcType="TIMESTAMP" property="req_date" />
+    <result column="date_hour" jdbcType="VARCHAR" property="date_hour" />
+    <result column="date" jdbcType="TIMESTAMP" property="date" />
     <result column="req_sys" jdbcType="BIGINT" property="req_sys" />
     <result column="ad_id" jdbcType="BIGINT" property="ad_id" />
     <result column="pos_id" jdbcType="BIGINT" property="pos_id" />
@@ -88,10 +89,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, req_id, req_date, req_sys, ad_id, pos_id, slot_type, media_id, dsp_id, dsp_media_id, 
-    dsp_pos_id, pv_s, pv_time, clikc_s, clikc_time, v_start_s, v_end_s, download_start_s, 
-    download_end_s, install_start_s, install_end_s, deeplink_s, ideeplink_s, ip, res_s, 
-    res_sys
+    id, req_id, date_hour, `date`, req_sys, ad_id, pos_id, slot_type, media_id, dsp_id, 
+    dsp_media_id, dsp_pos_id, pv_s, pv_time, clikc_s, clikc_time, v_start_s, v_end_s, 
+    download_start_s, download_end_s, install_start_s, install_end_s, deeplink_s, ideeplink_s, 
+    ip, res_s, res_sys
   </sql>
   <select id="selectByExample" parameterType="com.mk.adx.vo.DataAllExample" resultMap="BaseResultMap">
     select
@@ -124,33 +125,28 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mk.adx.vo.DataAll" useGeneratedKeys="true">
-    insert into data_all (req_id, req_date, req_sys, 
+    insert into data_all (req_id, date, date_hour, req_sys,
       ad_id, pos_id, slot_type, 
       media_id, dsp_id, dsp_media_id, 
       dsp_pos_id, ip, res_s,
       res_sys)
-    values (#{req_id,jdbcType=VARCHAR}, #{req_date,jdbcType=TIMESTAMP}, #{req_sys,jdbcType=BIGINT}, 
+    values (#{req_id,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP}, #{date_hour,jdbcType=VARCHAR}, #{req_sys,jdbcType=BIGINT},
       #{ad_id,jdbcType=BIGINT}, #{pos_id,jdbcType=BIGINT}, #{slot_type,jdbcType=BIGINT}, 
       #{media_id,jdbcType=BIGINT}, #{dsp_id,jdbcType=BIGINT}, #{dsp_media_id,jdbcType=VARCHAR}, 
       #{dsp_pos_id,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{res_s,jdbcType=BIGINT},
       #{res_sys,jdbcType=BIGINT})
   </insert>
-
-  <update id="update" parameterType="com.mk.adx.vo.DataAll">
-    update data_all
-    set res_s = #{res_s,jdbcType=BIGINT},
-    res_sys = #{res_sys,jdbcType=BIGINT}
-    where req_id = #{req_id,jdbcType=VARCHAR}
-  </update>
-
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mk.adx.vo.DataAll" useGeneratedKeys="true">
     insert into data_all
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="req_id != null">
         req_id,
       </if>
-      <if test="req_date != null">
-        req_date,
+      <if test="date_hour != null">
+        date_hour,
+      </if>
+      <if test="date != null">
+        `date`,
       </if>
       <if test="req_sys != null">
         req_sys,
@@ -226,8 +222,11 @@
       <if test="req_id != null">
         #{req_id,jdbcType=VARCHAR},
       </if>
-      <if test="req_date != null">
-        #{req_date,jdbcType=TIMESTAMP},
+      <if test="date_hour != null">
+        #{date_hour,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=TIMESTAMP},
       </if>
       <if test="req_sys != null">
         #{req_sys,jdbcType=BIGINT},
@@ -315,8 +314,11 @@
       <if test="record.req_id != null">
         req_id = #{record.req_id,jdbcType=VARCHAR},
       </if>
-      <if test="record.req_date != null">
-        req_date = #{record.req_date,jdbcType=TIMESTAMP},
+      <if test="record.date_hour != null">
+        date_hour = #{record.date_hour,jdbcType=VARCHAR},
+      </if>
+      <if test="record.date != null">
+        `date` = #{record.date,jdbcType=TIMESTAMP},
       </if>
       <if test="record.req_sys != null">
         req_sys = #{record.req_sys,jdbcType=BIGINT},
@@ -396,7 +398,8 @@
     update data_all
     set id = #{record.id,jdbcType=BIGINT},
       req_id = #{record.req_id,jdbcType=VARCHAR},
-      req_date = #{record.req_date,jdbcType=TIMESTAMP},
+      date_hour = #{record.date_hour,jdbcType=VARCHAR},
+      `date` = #{record.date,jdbcType=TIMESTAMP},
       req_sys = #{record.req_sys,jdbcType=BIGINT},
       ad_id = #{record.ad_id,jdbcType=BIGINT},
       pos_id = #{record.pos_id,jdbcType=BIGINT},
@@ -430,8 +433,11 @@
       <if test="req_id != null">
         req_id = #{req_id,jdbcType=VARCHAR},
       </if>
-      <if test="req_date != null">
-        req_date = #{req_date,jdbcType=TIMESTAMP},
+      <if test="date_hour != null">
+        date_hour = #{date_hour,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        `date` = #{date,jdbcType=TIMESTAMP},
       </if>
       <if test="req_sys != null">
         req_sys = #{req_sys,jdbcType=BIGINT},
@@ -508,7 +514,8 @@
   <update id="updateByPrimaryKey" parameterType="com.mk.adx.vo.DataAll">
     update data_all
     set req_id = #{req_id,jdbcType=VARCHAR},
-      req_date = #{req_date,jdbcType=TIMESTAMP},
+      date_hour = #{date_hour,jdbcType=VARCHAR},
+      `date` = #{date,jdbcType=TIMESTAMP},
       req_sys = #{req_sys,jdbcType=BIGINT},
       ad_id = #{ad_id,jdbcType=BIGINT},
       pos_id = #{pos_id,jdbcType=BIGINT},
@@ -534,6 +541,7 @@
       res_sys = #{res_sys,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
   <update id="uppv" parameterType="java.util.Map">
     update data_all
     set pv_s = #{pv_s}, pv_time = #{pv_time}
@@ -585,6 +593,10 @@
     where req_id = #{req_id}
   </update>
 
-
-
+  <update id="update" parameterType="com.mk.adx.vo.DataAll">
+    update data_all
+    set res_s = #{res_s,jdbcType=BIGINT},
+        res_sys = #{res_sys,jdbcType=BIGINT}
+    where req_id = #{req_id,jdbcType=VARCHAR}
+  </update>
 </mapper>

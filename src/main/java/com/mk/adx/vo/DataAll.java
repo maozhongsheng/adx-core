@@ -1,5 +1,7 @@
 package com.mk.adx.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,7 +10,9 @@ public class DataAll implements Serializable {
 
     private String req_id;
 
-    private Date req_date;
+    private String date_hour;
+
+    private Date date;
 
     private Long req_sys;
 
@@ -74,12 +78,20 @@ public class DataAll implements Serializable {
         this.req_id = req_id;
     }
 
-    public Date getReq_date() {
-        return req_date;
+    public String getDate_hour() {
+        return date_hour;
     }
 
-    public void setReq_date(Date req_date) {
-        this.req_date = req_date;
+    public void setDate_hour(String date_hour) {
+        this.date_hour = date_hour;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Long getReq_sys() {
@@ -274,7 +286,8 @@ public class DataAll implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", req_id=").append(req_id);
-        sb.append(", req_date=").append(req_date);
+        sb.append(", date_hour=").append(date_hour);
+        sb.append(", date=").append(date);
         sb.append(", req_sys=").append(req_sys);
         sb.append(", ad_id=").append(ad_id);
         sb.append(", pos_id=").append(pos_id);
@@ -316,7 +329,8 @@ public class DataAll implements Serializable {
         DataAll other = (DataAll) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getReq_id() == null ? other.getReq_id() == null : this.getReq_id().equals(other.getReq_id()))
-            && (this.getReq_date() == null ? other.getReq_date() == null : this.getReq_date().equals(other.getReq_date()))
+            && (this.getDate_hour() == null ? other.getDate_hour() == null : this.getDate_hour().equals(other.getDate_hour()))
+            && (this.getDate() == null ? other.getDate() == null : this.getDate().equals(other.getDate()))
             && (this.getReq_sys() == null ? other.getReq_sys() == null : this.getReq_sys().equals(other.getReq_sys()))
             && (this.getAd_id() == null ? other.getAd_id() == null : this.getAd_id().equals(other.getAd_id()))
             && (this.getPos_id() == null ? other.getPos_id() == null : this.getPos_id().equals(other.getPos_id()))
@@ -348,7 +362,8 @@ public class DataAll implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getReq_id() == null) ? 0 : getReq_id().hashCode());
-        result = prime * result + ((getReq_date() == null) ? 0 : getReq_date().hashCode());
+        result = prime * result + ((getDate_hour() == null) ? 0 : getDate_hour().hashCode());
+        result = prime * result + ((getDate() == null) ? 0 : getDate().hashCode());
         result = prime * result + ((getReq_sys() == null) ? 0 : getReq_sys().hashCode());
         result = prime * result + ((getAd_id() == null) ? 0 : getAd_id().hashCode());
         result = prime * result + ((getPos_id() == null) ? 0 : getPos_id().hashCode());

@@ -31,7 +31,6 @@ public class MkResponseTestConfig {
         MkBid bid = new MkBid();
         MkImage image = new MkImage();
         List<MkImage> images = new ArrayList();
-        bid.setId(request.getId());
         bid.setPrice(1);
         bid.setAdid(request.getImp().get(0).getTagid());
         bid.setTitle("信息流测试标题");
@@ -69,7 +68,6 @@ public class MkResponseTestConfig {
         MkBid bid = new MkBid();
         MkImage image = new MkImage();
         List<MkImage> images = new ArrayList();
-        bid.setId(request.getId());
         bid.setPrice(1);
         bid.setAdid(request.getImp().get(0).getTagid());
         bid.setTitle("开屏测试标题");

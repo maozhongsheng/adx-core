@@ -235,63 +235,133 @@ public class DataAllExample {
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateIsNull() {
-            addCriterion("req_date is null");
+        public Criteria andDate_hourIsNull() {
+            addCriterion("date_hour is null");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateIsNotNull() {
-            addCriterion("req_date is not null");
+        public Criteria andDate_hourIsNotNull() {
+            addCriterion("date_hour is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateEqualTo(Date value) {
-            addCriterion("req_date =", value, "req_date");
+        public Criteria andDate_hourEqualTo(String value) {
+            addCriterion("date_hour =", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateNotEqualTo(Date value) {
-            addCriterion("req_date <>", value, "req_date");
+        public Criteria andDate_hourNotEqualTo(String value) {
+            addCriterion("date_hour <>", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateGreaterThan(Date value) {
-            addCriterion("req_date >", value, "req_date");
+        public Criteria andDate_hourGreaterThan(String value) {
+            addCriterion("date_hour >", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateGreaterThanOrEqualTo(Date value) {
-            addCriterion("req_date >=", value, "req_date");
+        public Criteria andDate_hourGreaterThanOrEqualTo(String value) {
+            addCriterion("date_hour >=", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateLessThan(Date value) {
-            addCriterion("req_date <", value, "req_date");
+        public Criteria andDate_hourLessThan(String value) {
+            addCriterion("date_hour <", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateLessThanOrEqualTo(Date value) {
-            addCriterion("req_date <=", value, "req_date");
+        public Criteria andDate_hourLessThanOrEqualTo(String value) {
+            addCriterion("date_hour <=", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateIn(List<Date> values) {
-            addCriterion("req_date in", values, "req_date");
+        public Criteria andDate_hourLike(String value) {
+            addCriterion("date_hour like", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateNotIn(List<Date> values) {
-            addCriterion("req_date not in", values, "req_date");
+        public Criteria andDate_hourNotLike(String value) {
+            addCriterion("date_hour not like", value, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateBetween(Date value1, Date value2) {
-            addCriterion("req_date between", value1, value2, "req_date");
+        public Criteria andDate_hourIn(List<String> values) {
+            addCriterion("date_hour in", values, "date_hour");
             return (Criteria) this;
         }
 
-        public Criteria andReq_dateNotBetween(Date value1, Date value2) {
-            addCriterion("req_date not between", value1, value2, "req_date");
+        public Criteria andDate_hourNotIn(List<String> values) {
+            addCriterion("date_hour not in", values, "date_hour");
+            return (Criteria) this;
+        }
+
+        public Criteria andDate_hourBetween(String value1, String value2) {
+            addCriterion("date_hour between", value1, value2, "date_hour");
+            return (Criteria) this;
+        }
+
+        public Criteria andDate_hourNotBetween(String value1, String value2) {
+            addCriterion("date_hour not between", value1, value2, "date_hour");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateIsNull() {
+            addCriterion("`date` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateIsNotNull() {
+            addCriterion("`date` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateEqualTo(Date value) {
+            addCriterion("`date` =", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateNotEqualTo(Date value) {
+            addCriterion("`date` <>", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateGreaterThan(Date value) {
+            addCriterion("`date` >", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("`date` >=", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateLessThan(Date value) {
+            addCriterion("`date` <", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateLessThanOrEqualTo(Date value) {
+            addCriterion("`date` <=", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateIn(List<Date> values) {
+            addCriterion("`date` in", values, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateNotIn(List<Date> values) {
+            addCriterion("`date` not in", values, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateBetween(Date value1, Date value2) {
+            addCriterion("`date` between", value1, value2, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateNotBetween(Date value1, Date value2) {
+            addCriterion("`date` not between", value1, value2, "date");
             return (Criteria) this;
         }
 
