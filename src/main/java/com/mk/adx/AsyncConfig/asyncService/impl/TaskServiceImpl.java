@@ -1,6 +1,7 @@
 package com.mk.adx.AsyncConfig.asyncService.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mk.adx.AsyncConfig.InsertKafka;
 import com.mk.adx.AsyncConfig.InsertMysql;
 import com.mk.adx.AsyncConfig.RandomUtil;
 import com.mk.adx.AsyncConfig.asyncService.TaskService;
@@ -33,6 +34,10 @@ public class TaskServiceImpl implements TaskService {
 
     @Autowired
     private InsertMysql insertMysql;
+
+    @Autowired
+    private InsertKafka insertKafka;
+
 
     /**
      * 一、处理流量分配和并发请求，并且将请求参数写入kafka
@@ -76,7 +81,7 @@ public class TaskServiceImpl implements TaskService {
         //4、处理返回数据，放入mysql
         if (null != bidResponse.getId()) {
 //            bidResponse.setProcess_time_ms(tempTime);
-            insertMysql.updatemysqlrep(request);
+            insertKafka.ckDataByJson(bidResponse,request,startTime);
         }
 
         return bidResponse;

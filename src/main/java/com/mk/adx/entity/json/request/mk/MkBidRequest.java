@@ -33,6 +33,7 @@ public class MkBidRequest {
     private MkUser user;//用户对象
     private Integer test;//是否测试环境, ,0：正式，1：测试，默认为 0
     private MkAdv adv; //配置数据
+    private MkKafka mkKafka;
 
     private static final long serialVersionUID = 1L;
 

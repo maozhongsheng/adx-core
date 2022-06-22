@@ -1,11 +1,13 @@
 package com.mk.adx.AsyncConfig.asyncService.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mk.adx.AsyncConfig.InsertKafka;
 import com.mk.adx.client.AdminClient;
 import com.mk.adx.entity.json.request.mk.MkAdv;
 import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.service.MkTestService;
+import com.mk.adx.service.WokeJsonService;
 import com.mk.adx.util.RedisUtil;
 import com.mk.adx.AsyncConfig.InsertMysql;
 import com.mk.adx.AsyncConfig.asyncService.RandomRateService;
@@ -34,14 +36,20 @@ public class RandomRateServiceImpl implements RandomRateService {
     @Autowired
     private AdminClient adminClient;
 
+//    @Autowired
+//    private InsertMysql insertMysql;
+
     @Autowired
-    private InsertMysql insertMysql;
+    private InsertKafka insertKafka;
 
     @Resource
     private RedisUtil redisUtil;
 
     @Autowired
     private MkTestService mktestService;
+
+    @Autowired
+    private WokeJsonService wokeJsonService;
 
     /**
      * 1、随机请求
@@ -137,7 +145,7 @@ public class RandomRateServiceImpl implements RandomRateService {
             request.setAdv(mkAdv);//配置数据放入请求
 
             //2、处理mysql请求数据
-            insertMysql.insertMysql(mkAdv,request);
+            insertKafka.insertKafka(mkAdv,request);
 
             //2、根据adv_id处理请求service
             if(null != mkAdv){
@@ -172,7 +180,9 @@ public class RandomRateServiceImpl implements RandomRateService {
         MkBidResponse bidResponse = null;//返回数据
         //test = 1 是正式  test = 0 为测试
             if (1 == bidRequest.getAdv().getTest()) {
-
+                if("".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = wokeJsonService.getWokeDataByJson(bidRequest);//沃克
+                }
             }else {
                 bidResponse = mktestService.getTestDataByJson(bidRequest);
             }

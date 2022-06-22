@@ -6,7 +6,10 @@ import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.ResponseResult;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.jni.Socket;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,11 +24,13 @@ import java.io.IOException;
  */
 @RestController
 @Slf4j
-@RequestMapping("/api/json")
 public class MkJsonController {
-
     @Autowired
     private TaskService taskService;
+
+    @Autowired
+    private KafkaTemplate kafkaTemplate1;
+
 
 
     /**
@@ -34,7 +39,7 @@ public class MkJsonController {
      * @Date 2021/06/25 9:51
      */
     @ResponseBody
-    @RequestMapping(value = "/mkRequest",method = {RequestMethod.POST})
+    @RequestMapping(value = "/req",method = {RequestMethod.POST})
     public ResponseResult TzJsonRequest(@Valid @RequestBody MkBidRequest request) throws IOException {
         log.info("=========下游请求参数"+JSONObject.toJSON(request));
         MkBidResponse bidResponse = taskService.ckJsonRequest(request);

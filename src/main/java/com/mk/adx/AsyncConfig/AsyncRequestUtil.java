@@ -29,10 +29,11 @@ public class AsyncRequestUtil {
     @Autowired
     private AdminClient adminClient;
 
+//    @Autowired
+//    private InsertMysql insertMysql;
+
     @Autowired
-    private InsertMysql insertMysql;
-
-
+    private InsertKafka insertKafka;
 
     @Resource
     private RedisUtil redisUtil;
@@ -84,7 +85,7 @@ public class AsyncRequestUtil {
             request.setAdv(mkAdv);
 
             //2、处理kafka请求数据
-            insertMysql.insertMysql(mkAdv,request);
+            insertKafka.insertKafka(mkAdv,request);
 
             //3、根据adv_id处理请求service
             if(null != mkAdv){
