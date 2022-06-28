@@ -180,7 +180,7 @@ public class RandomRateServiceImpl implements RandomRateService {
         MkBidResponse bidResponse = null;//返回数据
         //test = 1 是正式  test = 0 为测试
             if (1 == bidRequest.getAdv().getTest()) {
-                if("".equals(bidRequest.getAdv().getDsp_id())){
+                if("2021000056".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = wokeJsonService.getWokeDataByJson(bidRequest);//沃克
                 }
             }else {

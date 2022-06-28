@@ -83,7 +83,7 @@ public class MkDevice {
     private String timeZone;//当前设备时区，IOS操作系统必传,例如:28800
     private String local_name;//时区local时区，如"Asia/Shanghai"，仅ios需要回传，安卓可不填写该字段
     private String hardware_machine;//如“iPhone10,3”, 仅ios需要回传，安卓可不填写该字段
-    private String appstore_ver;//如“iPhone10,3”, 仅ios需要回传，安卓可不填写该字段
+    private String appstore_ver;//厂商应用商店版本号(vovi、小米、华为、oppo 等厂商 应 用商店) 必填
     private String vercodeofhms;//HMS Core 版本号，实现被推广应用的静默安装依赖 HMS Core 能力。华为设备必填。
 
 

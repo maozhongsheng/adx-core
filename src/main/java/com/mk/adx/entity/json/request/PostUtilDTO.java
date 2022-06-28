@@ -19,6 +19,7 @@ public class PostUtilDTO {
     private String headerWoKe;//沃氪header value值
     private String headerSzyd;//数字悦动header value值
     private String szyd_ip;//数字悦动ip
+    private String Yueke;//阅客
 
 
 }

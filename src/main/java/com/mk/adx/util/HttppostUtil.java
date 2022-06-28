@@ -75,6 +75,10 @@ public class HttppostUtil {
         if (StringUtils.isNotBlank(params.getSzyd_ip())){
             post.setHeader("X-Forwarded-For", params.getSzyd_ip());
         }
+        //阅客
+        if (StringUtils.isNotBlank(params.getYueke())){
+            post.setHeader("X-Forwarded-For", params.getSzyd_ip());
+        }
         //请求参数体
         if(StringUtils.isNotBlank(params.getContent())){
             post.setEntity(new StringEntity(params.getContent(), "utf-8"));
