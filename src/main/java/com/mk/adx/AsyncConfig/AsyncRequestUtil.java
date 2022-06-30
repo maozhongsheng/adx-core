@@ -5,6 +5,7 @@ import com.mk.adx.client.AdminClient;
 import com.mk.adx.entity.json.request.mk.MkAdv;
 import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
+import com.mk.adx.service.*;
 import com.mk.adx.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -37,6 +38,24 @@ public class AsyncRequestUtil {
 
     @Resource
     private RedisUtil redisUtil;
+
+    @Autowired
+    private MkTestService mktestService;
+
+    @Autowired
+    private WokeJsonService wokeJsonService;
+
+    @Autowired
+    private ZhimengJsonService zhimengJsonService;
+
+    @Autowired
+    private YdzxJsonService ydzxJsonService;
+
+    @Autowired
+    private OneNJsonService oneNJsonService;
+
+    @Autowired
+    private XiaoMiJsonService xiaoMiJsonService;
 
     public Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, MkBidRequest request, int status){
         String timeoutStr = distribute.get("timeout").toString();//后台配置超时时间
@@ -116,11 +135,22 @@ public class AsyncRequestUtil {
      */
     private MkBidResponse asyncRequest(MkBidRequest bidRequest){
         MkBidResponse bidResponse = null;//返回数据
-            if (1 == bidRequest.getAdv().getTest()) {
-
-            }else {
-
+        if (1 == bidRequest.getAdv().getTest()) {
+            if("2021000056".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = wokeJsonService.getWokeDataByJson(bidRequest);//沃克
+            }else if("2021000057".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = zhimengJsonService.getZhimengDataByJson(bidRequest);//知乎
+            }else if("2021000058".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = xiaoMiJsonService.getXiaoMiDataByJson(bidRequest);//小米
+            }else if("2021000062".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = ydzxJsonService.getYdzxDataByJson(bidRequest);//一点咨询
+            }else if("2021000063".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = oneNJsonService.getOneNDataByJson(bidRequest);//1n
             }
+        }else {
+            bidResponse = mktestService.getTestDataByJson(bidRequest);
+        }
+
 
 
         return bidResponse;

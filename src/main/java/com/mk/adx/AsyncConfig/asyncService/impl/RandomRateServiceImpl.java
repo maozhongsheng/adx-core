@@ -58,6 +58,9 @@ public class RandomRateServiceImpl implements RandomRateService {
     @Autowired
     private OneNJsonService oneNJsonService;
 
+    @Autowired
+    private XiaoMiJsonService xiaoMiJsonService;
+
 
     /**
      * 1、随机请求
@@ -192,6 +195,8 @@ public class RandomRateServiceImpl implements RandomRateService {
                     bidResponse = wokeJsonService.getWokeDataByJson(bidRequest);//沃克
                 }else if("2021000057".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = zhimengJsonService.getZhimengDataByJson(bidRequest);//知乎
+                }else if("2021000058".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = xiaoMiJsonService.getXiaoMiDataByJson(bidRequest);//小米
                 }else if("2021000062".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = ydzxJsonService.getYdzxDataByJson(bidRequest);//一点咨询
                 }else if("2021000063".equals(bidRequest.getAdv().getDsp_id())){
