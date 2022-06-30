@@ -313,7 +313,7 @@ public class YdzxJsonServiceImpl implements YdzxJsonService {
                      List<String> checkStartDownloads = new ArrayList<>();
                      JSONArray dmurl = bids.getJSONObject(j).getJSONArray("dmurl");//app 下载开始的监测地址
                      if (null != dmurl) {
-                         checkStartDownloads.add("http://adx.fxlxz.com/sl/dl_start?downloadStart=" + Base64.encode(encode));
+                         checkStartDownloads.add("http://adx.fxlxz.com/sl/dl_start?downloadStart=" + Base64.encode(encode2));
                          for (int cm = 0; cm < cmurl.size(); cm++) {
                              checkStartDownloads.add(cmurl.get(cm).toString());
                          }
@@ -323,7 +323,7 @@ public class YdzxJsonServiceImpl implements YdzxJsonService {
                      List<String> checkEndDownloads = new ArrayList<>();
                      JSONArray downsuccessurl = bids.getJSONObject(j).getJSONArray("downsuccessurl");//app 下载完成的监测地址
                      if (null != downsuccessurl) {
-                         checkEndDownloads.add("http://adx.fxlxz.com/sl/dl_end?downloadEnd=" + Base64.encode(encode));
+                         checkEndDownloads.add("http://adx.fxlxz.com/sl/dl_end?downloadEnd=" + Base64.encode(encode2));
                          for (int dle = 0; dle < downsuccessurl.size(); dle++) {
                              checkEndDownloads.add(downsuccessurl.get(dle).toString());
                          }
@@ -333,7 +333,7 @@ public class YdzxJsonServiceImpl implements YdzxJsonService {
                      List<String> checkSuccessDeeplinks = new ArrayList<>();
                      JSONArray deeplinkmurl = bids.getJSONObject(j).getJSONArray("deeplinkmurl");//仅用于唤醒广告，deeplink 链接调起成功
                      if (null != deeplinkmurl) {
-                         checkSuccessDeeplinks.add("http://adx.fxlxz.com/sl/dp_success?deeplink="+ Base64.encode(encode));
+                         checkSuccessDeeplinks.add("http://adx.fxlxz.com/sl/dp_success?deeplink="+ Base64.encode(encode2));
                          for (int dp = 0; dp < deeplinkmurl.size(); dp++) {
                              checkSuccessDeeplinks.add(deeplinkmurl.get(dp).toString());
                          }

@@ -229,16 +229,17 @@ public class ZhimengJsonServiceImpl implements ZhimengJsonService {
                         }
                         //上游没返回adtype，则用请求type判断广告类型
                         if ("1".equals(request.getImp().get(i).getSlot_type()) || "2".equals(request.getImp().get(i).getSlot_type())) {//信息流或banner
-                            tb.setAd_type(8);//原生-广告素材类型
+                            tb.setAd_type(1);//原生-广告素材类型
                         }else {
-                            tb.setAd_type(5);//开屏-广告素材类型
+                            tb.setAd_type(2);//开屏-广告素材类型
                         }
                         tb.setImages(list);
+
+                        String encode =  id + "," + request.getAdv().getPrice() + "," + request.getDevice().getIp() + ","+ request.getMkKafka().getPublish_id() + "," + request.getMkKafka().getMedia_id() + "," + request.getMkKafka().getPos_id() + "," + request.getMkKafka().getSlot_type() + "," + request.getMkKafka().getDsp_id() + "," + request.getMkKafka().getDsp_media_id() + "," + request.getMkKafka().getDsp_pos_id() + "," + request.getAdv().getApp_name();
 
                         //曝光监测
                         if(null != imp.getJSONObject(i).getJSONObject("tracker").getJSONArray("imps")){
                             List<String> check_views = new ArrayList<>();
-                            String encode =  id + "," + request.getAdv().getPrice() + "," + request.getDevice().getIp() + ","+ request.getMkKafka().getPublish_id() + "," + request.getMkKafka().getMedia_id() + "," + request.getMkKafka().getPos_id() + "," + request.getMkKafka().getSlot_type() + "," + request.getMkKafka().getDsp_id() + "," + request.getMkKafka().getDsp_media_id() + "," + request.getMkKafka().getDsp_pos_id() + "," + request.getAdv().getApp_name();
                             check_views.add("http://adx.fxlxz.com/sl/pv?pv=" + Base64.encode(encode));
                             JSONArray urls1 = imp.getJSONObject(i).getJSONObject("tracker").getJSONArray("imps");
                             for (int cv = 0; cv < urls1.size(); cv++) {
@@ -252,7 +253,6 @@ public class ZhimengJsonServiceImpl implements ZhimengJsonService {
                         if(null != imp.getJSONObject(i).getJSONObject("tracker").getJSONArray("clicks")){
                             List<String> clickList = new ArrayList<>();
                             JSONArray urls1 =  imp.getJSONObject(i).getJSONObject("tracker").getJSONArray("clicks");
-                            String encode = id + "," + request.getAdv().getPrice() + "," + request.getDevice().getIp() + ","+ request.getMkKafka().getPublish_id() + "," + request.getMkKafka().getMedia_id() + "," + request.getMkKafka().getPos_id() + "," + request.getMkKafka().getSlot_type() + "," + request.getMkKafka().getDsp_id() + "," + request.getMkKafka().getDsp_media_id() + "," + request.getMkKafka().getDsp_pos_id() + "," + request.getAdv().getApp_name();
                             clickList.add("http://adx.fxlxz.com/sl/click?click=" + Base64.encode(encode));
                             for (int cc = 0; cc < urls1.size(); cc++) {
                                 String replace = urls1.get(cc).toString().replace("__WIDTH__", "%%WIDTH%%").replace("__HEIGHT__","%%HEIGHT%%").replace("__DOWN_X__","%%DOWN_X%%").replace("__DOWN_Y__","%%DOWN_Y%%").replace("__UP_X__","%%UP_X%%").replace("__UP_Y__","%%UP_Y%%");

@@ -6,10 +6,7 @@ import com.mk.adx.client.AdminClient;
 import com.mk.adx.entity.json.request.mk.MkAdv;
 import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
-import com.mk.adx.service.MkTestService;
-import com.mk.adx.service.WokeJsonService;
-import com.mk.adx.service.YdzxJsonService;
-import com.mk.adx.service.ZhimengJsonService;
+import com.mk.adx.service.*;
 import com.mk.adx.util.RedisUtil;
 import com.mk.adx.AsyncConfig.asyncService.RandomRateService;
 import lombok.SneakyThrows;
@@ -57,6 +54,9 @@ public class RandomRateServiceImpl implements RandomRateService {
 
     @Autowired
     private YdzxJsonService ydzxJsonService;
+
+    @Autowired
+    private OneNJsonService oneNJsonService;
 
 
     /**
@@ -194,6 +194,8 @@ public class RandomRateServiceImpl implements RandomRateService {
                     bidResponse = zhimengJsonService.getZhimengDataByJson(bidRequest);//知乎
                 }else if("2021000062".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = ydzxJsonService.getYdzxDataByJson(bidRequest);//一点咨询
+                }else if("2021000063".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = oneNJsonService.getOneNDataByJson(bidRequest);//1n
                 }
             }else {
                 bidResponse = mktestService.getTestDataByJson(bidRequest);

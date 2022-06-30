@@ -224,7 +224,7 @@ public class WoKeJsonServiceImpl implements WokeJsonService {
                 JSONArray navives = imp.getJSONArray("image_urls");
                 for (int na = 0; na < navives.size(); na++) {
                     MkImage tzImage = new MkImage();
-                    tzImage.setUrl(imp.getString("iurl"));
+                    tzImage.setUrl(navives.getString(na));
                     tzImage.setH(imp.getInteger("h"));
                     tzImage.setW(imp.getInteger("w"));
                     images.add(tzImage);
@@ -326,7 +326,7 @@ public class WoKeJsonServiceImpl implements WokeJsonService {
                 }
                 tb.setCheck_end_installs(installEList);//安装完成
             }
-
+            bidList.add(tb);
             bidResponse.setId(id);//请求id
             bidResponse.setBidid(id);
             bidResponse.setSeatbid(bidList);//广告集合对象

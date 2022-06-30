@@ -270,7 +270,7 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
                             mkImage.setUrl(banner.getString("iurl"));
                             list.add(mkImage);
                             tb.setImages(list);
-                            tb.setAd_type(5);//开屏-广告素材类型
+                            tb.setAd_type(2);//开屏-广告素材类型
                         }else if("4".equals(request.getImp().get(0).getSlot_type())){
                             MkVideo mkVideo = new MkVideo();
                             JSONObject video = imp.getJSONObject(i).getJSONObject("video");
@@ -279,7 +279,7 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
                             mkVideo.setH(video.getInteger("h"));
                             mkVideo.setDuration(video.getInteger("duration"));
                             tb.setVideo(mkVideo);
-
+                            tb.setAd_type(5);//视频
                         }else if("1".equals(request.getImp().get(0).getSlot_type())) {
                             List<MkImage> list = new ArrayList<>();
                             MkImage mkImage = new MkImage();
@@ -294,7 +294,7 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
                             JSONObject data = natives.getJSONObject("data");
                             tb.setTitle(title.getString("text"));
                             tb.setDesc(data.getString("value"));
-                            tb.setAd_type(8);//原生-广告素材类型
+                            tb.setAd_type(1);//原生-广告素材类型
                         }
 
                         //监测链接所需要的value
