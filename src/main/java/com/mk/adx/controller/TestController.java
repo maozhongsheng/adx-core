@@ -6,6 +6,9 @@ import com.mk.adx.entity.json.request.mk.MkBidRequest;
 import com.mk.adx.entity.json.response.ResponseResult;
 import com.mk.adx.entity.json.response.mk.MkBidResponse;
 import com.mk.adx.service.OneNJsonService;
+import com.mk.adx.service.UcJsonService;
+import com.mk.adx.service.XiaoMiJsonService;
+import com.mk.adx.service.YuekeJsonService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +31,12 @@ public class TestController {
 
     @Autowired
     private OneNJsonService oneNJsonService;
+    @Autowired
+    private XiaoMiJsonService xiaoMiJsonService;
+    @Autowired
+    private YuekeJsonService yuekeJsonService;
+    @Autowired
+    private UcJsonService ucJsonService;
 
 
     /**
@@ -40,7 +49,7 @@ public class TestController {
     public ResponseResult indexJsonRequest(@Valid @RequestBody MkBidRequest request) throws IOException, ExecutionException, InterruptedException {
         log.info("========="+ JSONObject.toJSONString(request.toString()));
         MkBidResponse bidResponse;
-        bidResponse = oneNJsonService.getOneNDataByJson(request);
+        bidResponse = ucJsonService.getUcDataByJson(request);
         if (null!=bidResponse.getId()){
             return new ResponseResult(bidResponse);
         }else {

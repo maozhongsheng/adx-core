@@ -2,7 +2,6 @@ package com.mk.adx.AsyncConfig.asyncService.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mk.adx.AsyncConfig.InsertKafka;
-import com.mk.adx.AsyncConfig.InsertMysql;
 import com.mk.adx.AsyncConfig.RandomUtil;
 import com.mk.adx.AsyncConfig.asyncService.TaskService;
 import com.mk.adx.client.AdminClient;
@@ -31,9 +30,6 @@ public class TaskServiceImpl implements TaskService {
 
     @Resource
     private RandomUtil randomUtil;
-
-    @Autowired
-    private InsertMysql insertMysql;
 
     @Autowired
     private InsertKafka insertKafka;

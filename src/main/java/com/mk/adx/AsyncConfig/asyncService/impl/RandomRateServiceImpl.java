@@ -34,9 +34,6 @@ public class RandomRateServiceImpl implements RandomRateService {
     @Autowired
     private AdminClient adminClient;
 
-//    @Autowired
-//    private InsertMysql insertMysql;
-
     @Autowired
     private InsertKafka insertKafka;
 
@@ -60,6 +57,15 @@ public class RandomRateServiceImpl implements RandomRateService {
 
     @Autowired
     private XiaoMiJsonService xiaoMiJsonService;
+
+    @Autowired
+    private HailiangJsonService hailiangJsonService;
+
+    @Autowired
+    private YunJuHeJsonService yunJuHeJsonService;
+
+    @Autowired
+    private UcJsonService ucJsonService;
 
 
     /**
@@ -197,10 +203,16 @@ public class RandomRateServiceImpl implements RandomRateService {
                     bidResponse = zhimengJsonService.getZhimengDataByJson(bidRequest);//知乎
                 }else if("2021000058".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = xiaoMiJsonService.getXiaoMiDataByJson(bidRequest);//小米
+                }else if("2021000059".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = yunJuHeJsonService.getYunJuHeDataByJson(bidRequest);//云聚合
+                }else if("2021000060".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = hailiangJsonService.getHailiangDataByJson(bidRequest);//嗨量
                 }else if("2021000062".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = ydzxJsonService.getYdzxDataByJson(bidRequest);//一点咨询
                 }else if("2021000063".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = oneNJsonService.getOneNDataByJson(bidRequest);//1n
+                }else if("2021000064".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = ucJsonService.getUcDataByJson(bidRequest);//uc
                 }
             }else {
                 bidResponse = mktestService.getTestDataByJson(bidRequest);

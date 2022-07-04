@@ -18,8 +18,12 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
+import cn.hutool.http.HttpUtil;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 /**
  * http请求工具类
@@ -178,6 +182,11 @@ public class HttppostUtil {
         // 创建一个post请求
         HttpPost post = new HttpPost(uri);
         post.setHeader("Content-Type", "application/json");
+        post.setHeader("ENV", "0");
+        post.setHeader("Data_type", "2");
+        post.setHeader("VER", "1");
+        post.setHeader("RSA_SEC_NUM", "application/json");
+        post.setHeader("User-Agent",ua);
         //设置超时时间
         RequestConfig requestConfig = RequestConfig.custom()
                 .setConnectTimeout(500).setConnectionRequestTimeout(200)
@@ -195,7 +204,6 @@ public class HttppostUtil {
         }
         //创建客户端
         HttpClient httpClient = HttpClients.createDefault();
-
         HttpEntity entity = null;
         byte[] responseContent = null;
         //发送请求
@@ -417,5 +425,24 @@ public class HttppostUtil {
         }
 
         return result;
+    }
+
+
+    /**
+     * json格式提交参数
+     * @param uri 接口地址
+     * @param params 参数
+     * @param ua
+     * @return
+     * @throws IOException
+     */
+    public static String douc(String uri, String params,String ua) throws UnsupportedEncodingException {
+        byte[] nig = new byte[16];
+        System.out.println("16字节空数组：" + new String(nig));
+        System.out.println("json请求体：" + params);
+        System.out.println("16字节空数组+json请求体：" + new String(nig) + params);
+        String post = HttpUtil.post(uri, new String(nig) + params);
+        System.out.println("响应内容：" + post);
+       return post;
     }
 }

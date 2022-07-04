@@ -30,9 +30,6 @@ public class AsyncRequestUtil {
     @Autowired
     private AdminClient adminClient;
 
-//    @Autowired
-//    private InsertMysql insertMysql;
-
     @Autowired
     private InsertKafka insertKafka;
 
@@ -56,6 +53,13 @@ public class AsyncRequestUtil {
 
     @Autowired
     private XiaoMiJsonService xiaoMiJsonService;
+
+    @Autowired
+    private HailiangJsonService hailiangJsonService;
+
+    @Autowired
+    private YunJuHeJsonService yunJuHeJsonService;
+
 
     public Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, MkBidRequest request, int status){
         String timeoutStr = distribute.get("timeout").toString();//后台配置超时时间
@@ -142,6 +146,10 @@ public class AsyncRequestUtil {
                 bidResponse = zhimengJsonService.getZhimengDataByJson(bidRequest);//知乎
             }else if("2021000058".equals(bidRequest.getAdv().getDsp_id())){
                 bidResponse = xiaoMiJsonService.getXiaoMiDataByJson(bidRequest);//小米
+            }else if("2021000059".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = yunJuHeJsonService.getYunJuHeDataByJson(bidRequest);//云聚合
+            }else if("2021000060".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = hailiangJsonService.getHailiangDataByJson(bidRequest);//嗨量
             }else if("2021000062".equals(bidRequest.getAdv().getDsp_id())){
                 bidResponse = ydzxJsonService.getYdzxDataByJson(bidRequest);//一点咨询
             }else if("2021000063".equals(bidRequest.getAdv().getDsp_id())){

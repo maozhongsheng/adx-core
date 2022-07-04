@@ -45,21 +45,21 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
         //imp
         YuekeImp yuekeImp = new YuekeImp();
         yuekeImp.setId("1");
-        yuekeImp.setAw(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
-        yuekeImp.setAh(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
-        yuekeImp.setTagid(request.getAdv().getTag_id());
+       // yuekeImp.setAw(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
+       // yuekeImp.setAh(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
+        yuekeImp.setTagid("rgnpyzk"); //request.getAdv().getTag_id()
         yuekeImp.setBidfloor(0);
         if("3".equals(request.getImp().get(0).getSlot_type()) || "5".equals(request.getImp().get(0).getSlot_type()) || "6".equals(request.getImp().get(0).getSlot_type())){
             YuekeBanner yuekeBanner = new YuekeBanner();
-            yuekeBanner.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
-            yuekeBanner.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
+           // yuekeBanner.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
+           // yuekeBanner.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
             yuekeBanner.setPos(0);
             yuekeBanner.setType(3);
             yuekeImp.setBanner(yuekeBanner);
         }else if("4".equals(request.getImp().get(0).getSlot_type())){
             YuekeVideo yuekeVideo = new YuekeVideo();
-            yuekeVideo.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
-            yuekeVideo.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
+         //   yuekeVideo.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
+          //  yuekeVideo.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
             yuekeVideo.setMinduration(0);
             yuekeImp.setVideo(yuekeVideo);
         }else if("1".equals(request.getImp().get(0).getSlot_type())){
@@ -76,12 +76,12 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
             yuekeData.setLen(25);
             yuekeAssets.setData(yuekeData);
             YuekeImg yuekeImg = new YuekeImg();
-            yuekeImg.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
-            yuekeImg.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
+           // yuekeImg.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
+          //  yuekeImg.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
             yuekeAssets.setImg(yuekeImg);
             YuekeVideo yuekeVideo = new YuekeVideo();
-            yuekeVideo.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
-            yuekeVideo.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
+          //  yuekeVideo.setW(Integer.valueOf(request.getAdv().getSize().split("\\*")[0]));
+         //   yuekeVideo.setH(Integer.valueOf(request.getAdv().getSize().split("\\*")[1]));
             yuekeVideo.setMinduration(0);
             yuekeAssets.setVideo(yuekeVideo);
 
@@ -97,10 +97,10 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
 
         //app
         YuekeApp yuekeApp = new YuekeApp();
-        yuekeApp.setId(request.getAdv().getApp_id());
-        yuekeApp.setName(request.getAdv().getApp_name());
-        yuekeApp.setBundle(request.getAdv().getBundle());
-        yuekeApp.setVer(request.getAdv().getVersion());
+        yuekeApp.setId("rf9ml8f"); //request.getAdv().getApp_id()
+        yuekeApp.setName("request.getAdv().getApp_name()");
+        yuekeApp.setBundle("request.getAdv().getBundle()");
+        yuekeApp.setVer("request.getAdv().getVersion()");
 
         //device
         YuekeDevice yuekeDevice = new YuekeDevice();
@@ -219,7 +219,7 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
         log.info(request.getImp().get(0).getTagid() + ":请求阅客广告参数"+JSONObject.parseObject(content));
         String ua = request.getDevice().getUa();
         PostUtilDTO pud = new PostUtilDTO();//工具类请求参数
-        pud.setUrl("http://adx.8bcd9.com/bid/v6/{adxId}");//请求路径
+        pud.setUrl("http://adx.8bcd9.com/bid/v6/rbedyqj");//请求路径
         pud.setUa(ua);//ua
         pud.setContent(content);//请求参数
         pud.setYueke("1");
@@ -298,7 +298,8 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
                         }
 
                         //监测链接所需要的value
-                        String encode =  id + "," + request.getAdv().getPrice() + "," + request.getDevice().getIp() + ","+ request.getMkKafka().getPublish_id() + "," + request.getMkKafka().getMedia_id() + "," + request.getMkKafka().getPos_id() + "," + request.getMkKafka().getSlot_type() + "," + request.getMkKafka().getDsp_id() + "," + request.getMkKafka().getDsp_media_id() + "," + request.getMkKafka().getDsp_pos_id() + "," + request.getAdv().getApp_name();
+                      //  String encode =  id + "," + request.getAdv().getPrice() + "," + request.getDevice().getIp() + ","+ request.getMkKafka().getPublish_id() + "," + request.getMkKafka().getMedia_id() + "," + request.getMkKafka().getPos_id() + "," + request.getMkKafka().getSlot_type() + "," + request.getMkKafka().getDsp_id() + "," + request.getMkKafka().getDsp_media_id() + "," + request.getMkKafka().getDsp_pos_id() + "," + request.getAdv().getApp_name();
+                        String encode = "1";
 
                         //曝光监测
                         if(null != imp.getJSONObject(i).getJSONObject("events").getJSONArray("els")){
