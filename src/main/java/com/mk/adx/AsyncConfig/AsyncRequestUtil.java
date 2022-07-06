@@ -66,6 +66,10 @@ public class AsyncRequestUtil {
     @Autowired
     private UcJsonService ucJsonService;
 
+    @Autowired
+    private YiLiangJsonService yiLiangJsonService;
+
+
 
     public Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, MkBidRequest request, int status){
         String timeoutStr = distribute.get("timeout").toString();//后台配置超时时间
@@ -164,6 +168,8 @@ public class AsyncRequestUtil {
                 bidResponse = ucJsonService.getUcDataByJson(bidRequest);//uc
             }else if("2021000065".equals(bidRequest.getAdv().getDsp_id())){
                 bidResponse = douMengJsonService.getDouMengDataByJson(bidRequest);//豆盟
+            }else if("2021000066".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = yiLiangJsonService.getYiLiangDataByJson(bidRequest);//奕量
             }
         }else {
             bidResponse = mktestService.getTestDataByJson(bidRequest);
