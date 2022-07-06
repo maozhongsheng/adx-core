@@ -12,7 +12,7 @@ spring:
   application:
     name: adx-core-master
   datasource:
-    url: jdbc:mysql://172.27.117.22:3306/ad_sp?autoReconnect=true&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://123.56.174.234:3306/ad_sp?autoReconnect=true&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: maofather147
     tomcat:
@@ -32,7 +32,7 @@ spring:
 
 #kafka
   kafka:
-    bootstrap-servers: 172.27.117.22:9092
+    bootstrap-servers: 123.56.174.234:9092
 #    listener:
 #      concurrency: 5 #指定listener 容器中的线程数，用于提高并发量
 #      ack-mode: manual_immediate #listner负责ack，每调用一次，就立即commit
@@ -51,7 +51,7 @@ spring:
 #      nodes: 49.232.91.191:6379,81.70.178.200:6379,82.156.126.248:6379,49.232.74.185:6379,49.233.44.47:6379,152.136.194.147:6379
 #          password: 0UKPqK2u
 #      nodes: 8.140.99.234:7010,8.140.99.234:7011,8.140.99.234:7012,8.140.99.234:7013,8.140.99.234:7014,8.140.99.234:7015
-    host: 172.27.117.22 # 172.27.117.22  123.56.174.234
+    host: 123.56.174.234 # 172.27.117.22  123.56.174.234
     port: 6379
     password: Mzs147.
     database: 0

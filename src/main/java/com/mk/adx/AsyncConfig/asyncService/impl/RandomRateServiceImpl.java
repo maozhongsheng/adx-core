@@ -134,6 +134,9 @@ public class RandomRateServiceImpl implements RandomRateService {
             }else{
                 //根据联盟广告位id查询上游数据
                 upper = adminClient.selectUpperBySlotId(adv_id);
+                if(null == upper){
+                    return mapObj;
+                }
                 //将上游数据存入redis
                 HashMap hashMap = new HashMap();
                 hashMap.put("dsp_id", upper.get("dsp_id").toString());
