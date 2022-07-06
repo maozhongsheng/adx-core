@@ -165,7 +165,7 @@ public class WoKeJsonServiceImpl implements WokeJsonService {
         MkBidResponse bidResponse = new MkBidResponse();//总返回
         String content = JSONObject.toJSONString(bidRequest);
         log.info(request.getImp().get(0).getTagid() + "请求沃氪广告参数"+JSONObject.parseObject(content));
-        String url = "http://api.zixbx.cn/req";
+        String url = "http://ad.zixbx.cn/req";
         String ua = request.getDevice().getUa();
         PostUtilDTO pud = new PostUtilDTO();//工具类请求参数
         pud.setUrl(url);//请求路径

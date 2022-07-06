@@ -91,11 +91,14 @@ public class RandomUtil {
                 makeParse = "9";
             }
             //机型优先级最高，根据机型匹配去请求广告，如果有返回直接返回，如果没有返回再去随机和并发
-            if (null!=make_status){
-                for (int k=0; k<make_status.length; k++){
-                    if (make_status[k].contains(makeParse)){
-                        if (!make_status[k].equals(0)){
-                            make_map.put(advert_ids[k], Integer.valueOf(rates[k]));
+            String s = make_status[0].toString();
+            if(!"".equals(s)){
+                if (null!=make_status){
+                    for (int k=0; k<make_status.length; k++){
+                        if (make_status[k].contains(makeParse)){
+                            if (!make_status[k].equals(0)){
+                                make_map.put(advert_ids[k], Integer.valueOf(rates[k]));
+                            }
                         }
                     }
                 }
