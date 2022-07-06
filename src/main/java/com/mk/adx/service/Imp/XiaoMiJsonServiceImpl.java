@@ -144,7 +144,7 @@ public class XiaoMiJsonServiceImpl implements XiaoMiJsonService {
                 tb.setImages(images);
 
                 if("1".equals(request.getImp().get(0).getSlot_type())){
-                    tb.setAd_type(8);//信息流-广告素材类型
+                    tb.setAd_type(1);//信息流-广告素材类型
                 }else if ("4".equals(request.getImp().get(0).getSlot_type())){
                     MkVideo video = new MkVideo();
                     tb.setAd_type(5);//视频-广告素材类型
@@ -160,16 +160,7 @@ public class XiaoMiJsonServiceImpl implements XiaoMiJsonService {
                     tb.setVideo(video);//视频素材
 
                 }else{
-                    String ad_slot_type = request.getImp().get(0).getSlot_type();
-                    if("2".equals(ad_slot_type)){
-                        tb.setAd_type(0);//广告素材类型
-                    }else if("3".equals(ad_slot_type)){
-                        tb.setAd_type(5);//广告素材类型
-                    }else if("5".equals(ad_slot_type)){
-                        tb.setAd_type(0);//广告素材类型
-                    }else if("6".equals(ad_slot_type)){
-                        tb.setAd_type(3);//广告素材类型
-                    }
+                    tb.setAd_type(2);//视频-广告素材类型
                 }
 
 

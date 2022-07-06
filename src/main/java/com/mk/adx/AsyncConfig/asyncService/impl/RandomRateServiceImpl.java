@@ -65,6 +65,9 @@ public class RandomRateServiceImpl implements RandomRateService {
     private YunJuHeJsonService yunJuHeJsonService;
 
     @Autowired
+    private DouMengJsonService douMengJsonService;
+
+    @Autowired
     private UcJsonService ucJsonService;
 
 
@@ -216,6 +219,8 @@ public class RandomRateServiceImpl implements RandomRateService {
                     bidResponse = oneNJsonService.getOneNDataByJson(bidRequest);//1n
                 }else if("2021000064".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = ucJsonService.getUcDataByJson(bidRequest);//uc
+                }else if("2021000065".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = douMengJsonService.getDouMengDataByJson(bidRequest);//豆盟
                 }
             }else {
                 bidResponse = mktestService.getTestDataByJson(bidRequest);

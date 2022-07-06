@@ -190,10 +190,10 @@ public class HailiangJsonServiceImpl implements HailiangJsonService {
                         apps.setApp_name(bid.getJSONObject(j).getString("appname"));
                         apps.setApp_icon(bid.getJSONObject(j).getString("appicon"));
                         appsList.add(apps);
-                        if ("1".equals(request.getImp().get(i).getSlot_type())) {
-                            tb.setAd_type(8);
-                        } else {
-                            tb.setAd_type(7);
+                        if ("1".equals(request.getImp().get(i).getSlot_type()) || "2".equals(request.getImp().get(i).getSlot_type())) {//信息流或banner
+                            tb.setAd_type(1);//原生-广告素材类型
+                        }else {
+                            tb.setAd_type(2);//开屏-广告素材类型
                         }
                         JSONObject jsonObject = bid.getJSONObject(j).getJSONObject("image");
                         JSONArray jsonArray = bid.getJSONObject(j).getJSONArray("images");

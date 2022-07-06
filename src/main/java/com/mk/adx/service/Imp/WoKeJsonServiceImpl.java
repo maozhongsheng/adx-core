@@ -209,18 +209,7 @@ public class WoKeJsonServiceImpl implements WokeJsonService {
             }else{
                 //图片
                 ArrayList<MkImage> images = new ArrayList<>();
-                String ad_slot_type = request.getImp().get(0).getSlot_type();
-                if("2".equals(ad_slot_type)){
-                    tb.setAd_type(4);//广告素材类型
-                }else if("3".equals(ad_slot_type)){
-                    tb.setAd_type(2);//广告素材类型
-                }else if("5".equals(ad_slot_type)){
-                    tb.setAd_type(4);//广告素材类型
-                }else if("6".equals(ad_slot_type)){
-                    tb.setAd_type(4);//广告素材类型
-                }else if("1".equals(ad_slot_type)){
-                    tb.setAd_type(1);//广告素材类型
-                }
+                tb.setAd_type(1);//视频-广告素材类型
                 JSONArray navives = imp.getJSONArray("image_urls");
                 for (int na = 0; na < navives.size(); na++) {
                     MkImage tzImage = new MkImage();

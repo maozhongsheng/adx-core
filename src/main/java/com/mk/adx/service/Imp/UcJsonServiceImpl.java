@@ -180,10 +180,10 @@ public class UcJsonServiceImpl implements UcJsonService {
 
                 //上游没返回adtype，则用请求type判断广告类型
                 if ("1".equals(request.getImp().get(i).getSlot_type()) || "2".equals(request.getImp().get(i).getSlot_type())) {//信息流或banner
-                    tb.setAd_type(8);//原生-广告素材类型
+                    tb.setAd_type(1);//原生-广告素材类型
                 }else {
                     tb.setImages(list);
-                    tb.setAd_type(5);//开屏-广告素材类型
+                    tb.setAd_type(2);//开屏-广告素材类型
                 }
                 tb.setTitle(imp.getJSONObject(i).getJSONArray("ad").getJSONObject(0).getJSONObject("ad_content").getString("title"));//标题
                 tb.setDesc(imp.getJSONObject(i).getJSONArray("ad").getJSONObject(0).getJSONObject("ad_content").getString("description"));//描述
