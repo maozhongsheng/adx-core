@@ -180,8 +180,8 @@ public class YiLiangJsonServiceImpl implements YiLiangJsonService {
                     }
                     tb.setTitle(imp.getJSONObject(i).getString("title"));
                     tb.setDesc(imp.getJSONObject(i).getString("description"));
-                    tb.setAdLogo(imp.getJSONObject(i).getString("adLogo"));
-
+             //       tb.setAdLogo(imp.getJSONObject(i).getString("adLogo"));
+                    tb.setImages(images);
                     if(5 == imp.getJSONObject(i).getInteger("adType")){
                         tb.setAd_type(1);//信息流-广告素材类型
                     }else if (9 == imp.getJSONObject(i).getInteger("adType")){

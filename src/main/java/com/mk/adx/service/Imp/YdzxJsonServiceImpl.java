@@ -169,7 +169,8 @@ public class YdzxJsonServiceImpl implements YdzxJsonService {
         log.info("请求一点资讯数据"+content);
 
         MkBidResponse bidResponse = new MkBidResponse();//总返回
-        String url = "http://dsp2.yidianzixun.com/bid?adxType=zhongshilimei_1120&rtbVersion=3";//测试url
+      //  String url = "http://dsp2.yidianzixun.com/bid?adxType=zhongshilimei_1120&rtbVersion=3";//测试url
+        String url  = "http://test.dsp.ad.yidianzixun.com/bid?adxType=test_letou&rtbVersion=3";
         String ua = request.getDevice().getUa();//ua
         PostUtilDTO pud = new PostUtilDTO();//工具类请求参数
         pud.setUrl(url);//请求路径
