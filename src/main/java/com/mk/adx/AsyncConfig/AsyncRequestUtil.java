@@ -69,6 +69,12 @@ public class AsyncRequestUtil {
     @Autowired
     private YiLiangJsonService yiLiangJsonService;
 
+    @Autowired
+    private LanWaJsonService lanWaJsonService;
+
+    @Autowired
+    private ZhongMengJsonService zhongMengJsonService;
+
 
 
     public Map<Integer, MkBidResponse> totalRequest(Map<String, Integer> map, Map distribute, MkBidRequest request, int status){
@@ -170,6 +176,10 @@ public class AsyncRequestUtil {
                 bidResponse = douMengJsonService.getDouMengDataByJson(bidRequest);//豆盟
             }else if("2021000066".equals(bidRequest.getAdv().getDsp_id())){
                 bidResponse = yiLiangJsonService.getYiLiangDataByJson(bidRequest);//奕量
+            }else if("2021000068".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = lanWaJsonService.getLanWaDataByJson(bidRequest);//蓝蛙
+            }else if("2021000069".equals(bidRequest.getAdv().getDsp_id())){
+                bidResponse = zhongMengJsonService.getZhongMengDataByJson(bidRequest);//众盟
             }
         }else {
             bidResponse = mktestService.getTestDataByJson(bidRequest);

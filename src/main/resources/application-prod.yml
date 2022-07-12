@@ -33,7 +33,7 @@ spring:
   #kafka
   kafka:
     bootstrap-servers: 172.27.117.22:9092
-    #    listener:   172.27.117.22:9095,172.27.117.22:9096,172.27.117.22:9097
+    #    listener:   172.27.117.22:9095,172.27.117.22:9096,172.27.117.22:9097   172.27.117.22:9092
     #      concurrency: 5 #指定listener 容器中的线程数，用于提高并发量
     #      ack-mode: manual_immediate #listner负责ack，每调用一次，就立即commit
     producer:

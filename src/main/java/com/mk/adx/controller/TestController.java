@@ -49,7 +49,7 @@ public class TestController {
     public ResponseResult indexJsonRequest(@Valid @RequestBody MkBidRequest request) throws IOException, ExecutionException, InterruptedException {
         log.info("========="+ JSONObject.toJSONString(request.toString()));
         MkBidResponse bidResponse;
-        bidResponse = ucJsonService.getUcDataByJson(request);
+        bidResponse = yuekeJsonService.getYuekeDataByJson(request);
         if (null!=bidResponse.getId()){
             return new ResponseResult(bidResponse);
         }else {

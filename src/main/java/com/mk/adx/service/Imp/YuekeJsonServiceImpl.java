@@ -98,9 +98,9 @@ public class YuekeJsonServiceImpl implements YuekeJsonService {
         //app
         YuekeApp yuekeApp = new YuekeApp();
         yuekeApp.setId("rf9ml8f"); //request.getAdv().getApp_id()
-        yuekeApp.setName("request.getAdv().getApp_name()");
-        yuekeApp.setBundle("request.getAdv().getBundle()");
-        yuekeApp.setVer("request.getAdv().getVersion()");
+        yuekeApp.setName(""); //request.getAdv().getApp_name()
+        yuekeApp.setBundle(""); //request.getAdv().getBundle()
+        yuekeApp.setVer(""); //request.getAdv().getVersion()
 
         //device
         YuekeDevice yuekeDevice = new YuekeDevice();
