@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 描述广告位对象-曝光对象-native
  *
- * @author yjn
+ * @author mzs
  * @version 1.0
  * @date 2021/11/26 13:48
  */

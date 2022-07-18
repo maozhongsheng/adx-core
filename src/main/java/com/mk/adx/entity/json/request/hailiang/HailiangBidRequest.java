@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 嗨量-竞价请求对象-总请求
  *
- * @author yjn
+ * @author mzs
  * @version 1.0
  * @date 2021/11/26 13:49
  */

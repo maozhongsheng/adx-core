@@ -81,6 +81,9 @@ public class RandomRateServiceImpl implements RandomRateService {
     @Autowired
     private ZhongMengJsonService zhongMengJsonService;
 
+    @Autowired
+    private HuanRuiJsonService huanRuiJsonService;
+
 
 
     /**
@@ -239,6 +242,8 @@ public class RandomRateServiceImpl implements RandomRateService {
                     bidResponse = lanWaJsonService.getLanWaDataByJson(bidRequest);//蓝蛙
                 }else if("2021000069".equals(bidRequest.getAdv().getDsp_id())){
                     bidResponse = zhongMengJsonService.getZhongMengDataByJson(bidRequest);//众盟
+                }else if("2021000070".equals(bidRequest.getAdv().getDsp_id())){
+                    bidResponse = huanRuiJsonService.getHuanRuiDataByJson(bidRequest);//环睿
                 }
             }else {
                 bidResponse = mktestService.getTestDataByJson(bidRequest);

@@ -74,7 +74,7 @@ logging:
     max-history: 1 # 日志文件要保留的归档的最大天数。默认为 7 天
   path: logs
   level:
-    root: info
+    root: error
 
 eureka:
   client:

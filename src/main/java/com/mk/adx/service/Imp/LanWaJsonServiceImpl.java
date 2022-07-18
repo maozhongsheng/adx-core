@@ -55,7 +55,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
             lwb.setOaid(request.getDevice().getOaid());//广告标识符，安卓10以上必填
         }else if ("1".equals(os) || "ios".equals(os) || "IOS".equals(os)) {
             lwb.setPlatform(2);
-            lwb.setOs("iOS ");
+            lwb.setOs("iOS");
             lwb.setIdfa(request.getDevice().getIdfa());//IOS系统必填，原生大写
             lwb.setIdfv(request.getDevice().getIdfv());//IOS系统必填
             lwb.setOpenudid(request.getDevice().getOpen_udid());//IOS系统必填,设备识别码
@@ -130,7 +130,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
         MkBidResponse bidResponse = new MkBidResponse();
         String content = JSONObject.toJSONString(lwb);
         log.info(request.getImp().get(0).getTagid()+":请求蓝蛙广告参数"+JSONObject.parseObject(content));
-        String url = "http://ssp.ibluefrog.com/media/launch?ad_code=2923";
+        String url = "http://ssp.ibluefrog.com/media/launch?ad_code=1084";
         String ua = request.getDevice().getUa();//ua
         PostUtilDTO pud = new PostUtilDTO();//工具类请求参数
         pud.setUrl(url);//请求路径
@@ -253,7 +253,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
                 JSONArray urls1 =  jj.getJSONObject("event").getJSONArray("start_down");
                 downLoadList.add("http://adx.fxlxz.com/sl/dl_start?downloadStart=" + Base64.encode(encode));
                 for (int dl = 0; dl < urls1.size(); dl++) {
-                    downLoadList.add(urls1.get(dl).toString().replace("__CLICK_ID__","%%CLICK_ID%%"));
+                    downLoadList.add(urls1.get(dl).toString());
                 }
                 tb.setCheck_start_downloads(downLoadList);//开始下载
             }
@@ -264,7 +264,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
                 JSONArray urls1 =  jj.getJSONObject("event").getJSONArray("down_done");
                 downLoadDList.add("http://adx.fxlxz.com/sl/dl_end?downloadEnd=" + Base64.encode(encode));
                 for (int dle = 0; dle < urls1.size(); dle++) {
-                    downLoadDList.add(urls1.get(dle).toString().replace("__CLICK_ID__","%%CLICK_ID%%"));
+                    downLoadDList.add(urls1.get(dle).toString());
                 }
                 tb.setCheck_end_downloads(downLoadDList);//结束下载
             }
@@ -275,7 +275,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
                 JSONArray urls1 =  jj.getJSONObject("event").getJSONArray("start_install");
                 installList.add("http://adx.fxlxz.com/sl/in_start?installStart=" + Base64.encode(encode));
                 for (int ins = 0; ins < urls1.size(); ins++) {
-                    installList.add(urls1.get(ins).toString().replace("__CLICK_ID__","%%CLICK_ID%%"));
+                    installList.add(urls1.get(ins).toString());
                 }
                 tb.setCheck_start_installs(installList);//开始安装
             }
@@ -286,7 +286,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
                 JSONArray urls1 =  jj.getJSONObject("event").getJSONArray("install_done");
                 installEList.add("http://adx.fxlxz.com/sl/in_end?installEnd=" + Base64.encode(encode));
                 for (int ins = 0; ins < urls1.size(); ins++) {
-                    installEList.add(urls1.get(ins).toString().replace("__CLICK_ID__","%%CLICK_ID%%"));
+                    installEList.add(urls1.get(ins).toString());
                 }
                 tb.setCheck_end_installs(installEList);//安装完成
             }
@@ -297,7 +297,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
             if(null != jj.getJSONObject("event").getJSONArray("start_tracks")){
                 List<String> voidStartList = new ArrayList<>();
                 JSONArray urls1 =  jj.getJSONObject("event").getJSONArray("start_tracks");
-                voidStartList.add("http://adx-bid.tianzhuobj.com/ad-core-master/api/feedback/vedio/start?vedioStart=%%VEDIO_START%%");
+                voidStartList.add("http://adx.fxlxz.com/sl/v_start?vedioStart=" + Base64.encode(encode));
                 for (int vs = 0; vs < urls1.size(); vs++) {
                     voidStartList.add(urls1.get(vs).toString());
                 }
@@ -310,7 +310,7 @@ public class LanWaJsonServiceImpl implements LanWaJsonService {
             if(null != jj.getJSONObject("event").getJSONArray("complete_tracks")){
                 List<String> voidEndList = new ArrayList<>();
                 JSONArray urls1 =  jj.getJSONObject("event").getJSONArray("complete_tracks");
-                voidEndList.add("http://adx-bid.tianzhuobj.com/ad-core-master/api/feedback/vedio/end?vedioEnd=%%VEDIO_END%%");
+                voidEndList.add("http://adx.fxlxz.com/sl/v_end?vedioEnd=" + Base64.encode(encode));
                 for (int ve = 0; ve < urls1.size(); ve++) {
                     voidEndList.add(urls1.get(ve).toString());
                 }

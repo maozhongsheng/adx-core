@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 设备对象
  *
- * @author yjn
+ * @author mzs
  * @version 1.0
  * @date 2021/11/26 13:53
  */

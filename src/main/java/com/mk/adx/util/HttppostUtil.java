@@ -438,11 +438,7 @@ public class HttppostUtil {
      */
     public static String douc(String uri, String params,String ua) throws UnsupportedEncodingException {
         byte[] nig = new byte[16];
-        System.out.println("16字节空数组：" + new String(nig));
-        System.out.println("json请求体：" + params);
-        System.out.println("16字节空数组+json请求体：" + new String(nig) + params);
         String post = HttpUtil.post(uri, new String(nig) + params);
-        System.out.println("响应内容：" + post);
        return post;
     }
 }

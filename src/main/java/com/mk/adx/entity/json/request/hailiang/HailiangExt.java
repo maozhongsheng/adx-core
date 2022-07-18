@@ -3,7 +3,7 @@ package com.mk.adx.entity.json.request.hailiang;
 /**
  * Ext对象记录了特定⼴告源所需的参数信息
  *
- * @author yjn
+ * @author mzs
  * @version 1.0
  * @date 2021/11/26 15:34
  */

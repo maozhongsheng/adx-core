@@ -238,9 +238,7 @@ public class HailiangJsonServiceImpl implements HailiangJsonService {
                         if (null != clickUrl && 0 < clickUrl.size()) {
                             clickList.add("http://adx.fxlxz.com/sl/click?click=" + Base64.encode(encode));
                             for (int click = 0; click < clickUrl.size(); click++) {
-                                Long dateTime = System.currentTimeMillis() / 1000;
-                                Long dateMidTime = System.currentTimeMillis();
-                                clickList.add(clickUrl.get(click).toString().replace("__TS_S__", dateTime.toString()).replace("__TS__", dateMidTime.toString()).replace("__DOWN_X__", "%%DOWN_X%%").replace("__DOWN_Y__ ", "%%DOWN_Y%%").replace("__UP_X__", "%%UP_X%%").replace("__UP_Y__", "%%UP_Y%%").replace("__PNT_DOWN_X__", "%%ABS_DOWN_X%%").replace("__PNT_DOWN_Y__", "%%ABS_DOWN_Y%%").replace("__PNT_UP_X__", "%%ABS_UP_X%%").replace("__PNT_UP_Y__", "%%ABS_UP_Y%%"));
+                                clickList.add(clickUrl.get(click).toString().replace("__TS_S__", "__TS_S__").replace("__TS__", "__TS__").replace("__DOWN_X__", "__DOWN_X__").replace("__DOWN_Y__ ", "__DOWN_Y__").replace("__UP_X__", "__UP_X__").replace("__UP_Y__", "__UP_Y__"));
                             }
                             tb.setCheck_clicks(clickList);//点击监测URL第三方曝光监测
                         }
@@ -250,9 +248,7 @@ public class HailiangJsonServiceImpl implements HailiangJsonService {
                         if (null != monitorUrl && 0 < monitorUrl.size()) {
                             checkViews.add("http://adx.fxlxz.com/sl/pv?pv=" + Base64.encode(encode));
                             for (int view = 0; view < monitorUrl.size(); view++) {
-                                Long dateTime = System.currentTimeMillis() / 1000;
-                                Long dateMidTime = System.currentTimeMillis();
-                                checkViews.add(monitorUrl.get(view).toString().replace("__TS_S__", dateTime.toString()).replace("__TS__", dateMidTime.toString()).replace("__DOWN_X__", "%%DOWN_X%%").replace("__DOWN_Y__ ", "%%DOWN_Y%%").replace("__UP_X__", "%%UP_X%%").replace("__UP_Y__", "%%UP_Y%%").replace("__PNT_DOWN_X__", "%%ABS_DOWN_X%%").replace("__PNT_DOWN_Y__", "%%ABS_DOWN_Y%%").replace("__PNT_UP_X__", "%%ABS_UP_X%%").replace("__PNT_UP_Y__", "%%ABS_UP_Y%%"));//曝光监测URL,支持宏替换第三方曝光监测
+                                checkViews.add(monitorUrl.get(view).toString().replace("__TS_S__", "__TS_S__").replace("__TS__", "__TS__").replace("__DOWN_X__", "__DOWN_X__").replace("__DOWN_Y__ ", "__DOWN_Y__").replace("__UP_X__", "__UP_X__").replace("__UP_Y__", "__UP_Y__"));
                             }
                             tb.setCheck_views(checkViews);//曝光监测URL,支持宏替换第三方曝光监测
                         }
@@ -272,7 +268,7 @@ public class HailiangJsonServiceImpl implements HailiangJsonService {
                             List<String> checkStartDownloads = new ArrayList<>();
                             checkStartDownloads.add("http://adx.fxlxz.com/sl/dl_start?downloadStart=" + Base64.encode(encode));
                             for (int cm = 0; cm < dmurl.size(); cm++) {
-                                checkStartDownloads.add(dmurl.get(cm).toString().replace("__CLICK_ID__", "%%CLICK_ID%%"));
+                                checkStartDownloads.add(dmurl.get(cm).toString());
                             }
                             tb.setCheck_start_downloads(checkStartDownloads);//曝光监测URL,支持宏替换第三方曝光监测
                         }
@@ -283,7 +279,7 @@ public class HailiangJsonServiceImpl implements HailiangJsonService {
                             List<String> checkEndDownloads = new ArrayList<>();
                             checkEndDownloads.add("http://adx.fxlxz.com/sl/dl_end?downloadEnd=" + Base64.encode(encode));
                             for (int cm = 0; cm < downsuccessurl.size(); cm++) {
-                                checkEndDownloads.add(downsuccessurl.get(cm).toString().replace("__CLICK_ID__", "%%CLICK_ID%%"));
+                                checkEndDownloads.add(downsuccessurl.get(cm).toString());
                             }
                             tb.setCheck_end_downloads(checkEndDownloads);
                         }
@@ -294,7 +290,7 @@ public class HailiangJsonServiceImpl implements HailiangJsonService {
                             List<String> check_start_installs = new ArrayList<>();
                             check_start_installs.add("http://adx.fxlxz.com/sl/in_start?installStart=" + Base64.encode(encode));
                             for (int cm = 0; cm < check_start_installss.size(); cm++) {
-                                check_start_installs.add(check_start_installss.get(cm).toString().replace("__CLICK_ID__", "%%CLICK_ID%%"));
+                                check_start_installs.add(check_start_installss.get(cm).toString());
                             }
                             tb.setCheck_start_installs(check_start_installs);//开始安装监测URL第三方曝光监测
                         }
@@ -304,7 +300,7 @@ public class HailiangJsonServiceImpl implements HailiangJsonService {
                             List<String> check_end_installs = new ArrayList<>();
                             check_end_installs.add("http://adx.fxlxz.com/sl/in_end?installEnd=" + Base64.encode(encode));
                             for (int cm = 0; cm < check_end_installss.size(); cm++) {
-                                check_end_installs.add(check_end_installss.get(cm).toString().replace("__CLICK_ID__", "%%CLICK_ID%%"));
+                                check_end_installs.add(check_end_installss.get(cm).toString());
                             }
                             tb.setCheck_end_installs(check_end_installs);//安装完成监测URL第三方曝光监测
                         }
